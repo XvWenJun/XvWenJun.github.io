@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Xvwenjun</title>
+  <title>ECMAScript入门（二） | Xvwenjun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Xvwenjun">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="Promise异步编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ECMAScript入门（二）">
+<meta property="og:url" content="http://example.com/2020/12/07/ES6/index.html">
 <meta property="og:site_name" content="Xvwenjun">
+<meta property="og:description" content="Promise异步编程">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201207171610979.png">
+<meta property="article:published_time" content="2020-12-07T08:21:25.000Z">
+<meta property="article:modified_time" content="2020-12-08T07:58:39.411Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="前端基础">
+<meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201207171610979.png">
   
     <link rel="alternative" href="/atom.xml" title="Xvwenjun" type="application/atom+xml">
   
@@ -142,139 +150,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-vue-learning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-ES6" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/08/vue-learning/">Vue知识点梳理</a>
-    </h1>
-  
-
-        
-        <a href="/2020/12/08/vue-learning/" class="archive-article-date">
-  	<time datetime="2020-12-08T07:41:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>Vue-cli</p>
-</li>
-<li><p>v-html会有xss风险，会覆盖子组件。</p>
-</li>
-<li><p>computed有缓存，data不变不会重新计算。如果使用v-model，必须有get和set，否则会报错。</p>
-</li>
-<li><p>watch是浅监听，若要深度监听，使用handle、并设置deep为true，且拿不到oldvalue（因为是引用类型）。</p>
-</li>
-<li><p>v-if和v-show</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">区别：v-show无论条件是否满足，都会生成，改变的只是display：none；</span><br><span class="line"></span><br><span class="line">使用场景：刷新不频繁用v-if，如果频繁切换用v-show，不用反复销毁</span><br></pre></td></tr></table></figure>
-
-<p>扩展：display：none，hidden的区别</p>
-</li>
-</ul>
-<ul>
-<li><p>v-for</p>
-</li>
-<li><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201208161703575.png" alt="image-20201208161703575"></p>
-<ul>
-<li>key的重要性</li>
-</ul>
-</li>
-</ul>
-<pre><code>* v-for和v-if不能一起用</code></pre>
-<p>  v-for优先级高于v-if</p>
-<ul>
-<li><p>事件</p>
-<p>event参数、若有自定义参数，要写成 $event，并且放在最后。</p>
-<p>event是原生的，事件被挂载在当前元素。</p>
-</li>
-</ul>
-<p>  事件按修饰符、案件修饰符</p>
-<p>  <strong>观察</strong>事件被绑定在那里？</p>
-<ul>
-<li><p>v-model</p>
-<p>表单修饰符 trim lazy number</p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ES6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/07/ES6/">ECMAScript入门（二）</a>
+    <h1 class="article-title" itemprop="name">
+      ECMAScript入门（二）
     </h1>
   
 
@@ -289,9 +172,62 @@
       
         <h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><h2 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h2></br>
 </br>
-        
-          <a class="article-more-a" href="/2020/12/07/ES6/#more">more >></a>
-        
+<a id="more"></a>
+<font color="#ccc">JavaScript是单线程的，意味着一次只能处理一个任务，这个特点是由Js这门语言诞生的使命决定的，一开始Js是用来处理页面中用户的交互，以及操作页面DOM。（例如要对一个DOM元素进行操作添加和删除操作，只能先增加，后删除，不能同时操作。单线程事件处理导致任务等待时间过长，消耗资源，因此，JS出现了同步任务和异步任务。</font>
+
+<p>传统的异步编程，是通过客户端的 Event-Loop 机制 。</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201207171610979.png" alt="image-20201207171610979"></p>
+<h4 id="1-将回调函数作为参数传入函数中，实现异步编程"><a href="#1-将回调函数作为参数传入函数中，实现异步编程" class="headerlink" title="1. 将回调函数作为参数传入函数中，实现异步编程"></a>1. 将回调函数作为参数传入函数中，实现异步编程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">一个异步加载图片的例子：</span><br><span class="line"></span><br><span class="line"> function loadImg(src, callback, fail) &#123;</span><br><span class="line">        var img &#x3D; document.createElement(&#39;img&#39;)</span><br><span class="line">            &#x2F;&#x2F;  load事件触发后就会调用作为第二个参数的callback函数</span><br><span class="line">        img.onload &#x3D; function() &#123;</span><br><span class="line">                callback(img)</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F;  error事件触发后就会调用作为第三个参数的fail函数</span><br><span class="line">        img.onerror &#x3D; function(err) &#123;</span><br><span class="line">            fail(err)</span><br><span class="line">        &#125;</span><br><span class="line">        img.src &#x3D; src</span><br><span class="line">    &#125;</span><br><span class="line">    var src &#x3D; &#39;http:&#x2F;img1.qunarzz.com&#x2F;piao&#x2F;fusion&#x2F;1804&#x2F;ff&#x2F;fdf170ee89594b02.png&#39;</span><br><span class="line">        &#x2F;&#x2F; 正式加载</span><br><span class="line">    loadImg(src, function(img) &#123;</span><br><span class="line">        console.log(img.width)</span><br><span class="line">    &#125;, function(err) &#123;</span><br><span class="line">        console.log(err)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这种方法会产生回调地狱，代码没有可读性也不便于维护。</p>
+<h4 id="2-使用-Promise"><a href="#2-使用-Promise" class="headerlink" title="2.使用 Promise"></a>2.使用 Promise</h4><p><code>Promise</code>对象是一个构造函数，用来生成<code>Promise</code>实例 <code>Promise</code>实例生成以后，可以用<code>then</code>方法分别指定<code>resolved</code>状态和<code>rejected</code>状态的回调函数.。</br></p>
+<p>如果调用<code>resolve</code>函数和<code>reject</code>函数时带有参数，那么它们的参数会被传递给回调函数。<code>reject</code>函数的参数通常是<code>Error</code>对象的实例，表示抛出的错误；<code>resolve</code>函数的参数除了正常的值以外，还可能是另一个 Promise 实例。</br></p>
+<p><code>finally()</code>方法用于指定不管 Promise 对象最后状态如何，都会执行的操作。该方法是 ES2018 引入标准的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">使用Promise包装加载图片的异步操作：</span><br><span class="line"></span><br><span class="line">  function loadImg(src) &#123;</span><br><span class="line">        return new Promise(function(resolve, reject) &#123;</span><br><span class="line">            var img &#x3D; document.createElement(&#39;img&#39;)</span><br><span class="line">            img.onload &#x3D; function() &#123;</span><br><span class="line">                resolve(img)</span><br><span class="line">            &#125;</span><br><span class="line">            img.onerror &#x3D; function(err) &#123;</span><br><span class="line">                reject(err)</span><br><span class="line">            &#125;</span><br><span class="line">            img.src &#x3D; src</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    var src &#x3D; &#39;http:&#x2F;&#x2F;img1.qunarzz.com&#x2F;piao&#x2F;fusion&#x2F;1804&#x2F;ff&#x2F;fdf170ee89594b02.png&#39;</span><br><span class="line">        &#x2F;&#x2F; 正式加载</span><br><span class="line">    var result &#x3D; loadImg(src)</span><br><span class="line">    result</span><br><span class="line">        .then(function(img) &#123;</span><br><span class="line">            console.log(img.width)</span><br><span class="line">            return img &#x2F;&#x2F;如果之后还有异步函数，必须返回Promise对象，称为多个Promise对象的串联</span><br><span class="line">        &#125;)</span><br><span class="line">        .then(function(img)&#123;</span><br><span class="line">        	console.log(img.height)</span><br><span class="line">        &#125;)</span><br><span class="line">        .catch(function(err) &#123;</span><br><span class="line">            console.log(err)</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>Promise 是一种更合理的异步编程解决方案，可以用同步操作的流程将异步操作表达出来，其特点如下：</p>
+<ul>
+<li>只有 pending、fulfilled、rejected 三种状态，状态仅由异步操作的结果决定，任何操作都无法改变这一状态。状态一旦改变，就再也不会变化（这也是“promise”的由来）。</li>
+<li>promise 的状态改变，有两种可能：从 pending 变为 fulfilled、从 pending 变为 rejected，只要这两种变化发生，状态就凝固为 resolved。</li>
+<li>任何时候都可以获取该回调结果。如果改变已经发生了，你再对<code>Promise</code>对象添加回调函数，也会立即得到这个结果。这与事件（Event）完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>必须要添加回调函数，才能将 promise 内部抛出的错误反映出来。</li>
+<li>promise 函数一旦创建就会<strong>立即执行</strong>，无法取消无法知道 promise 的执行状态（当处于 pending 状态时，无法确定是刚开始的状态、还是即将完成）</li>
+</ul>
+<h1 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h1><h2 id="Generator-函数"><a href="#Generator-函数" class="headerlink" title="Generator 函数"></a>Generator 函数</h2><p>Generator 函数是 ES6 提供的一种异步编程解决方案。</p>
+<p>语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。</p>
+<p>形式上，Generator 函数是一个普通函数，但是有两个特征。一是，<code>function</code>关键字与函数名之间有一个星号；二是，函数体内部使用<code>yield</code>表达式，定义不同的内部状态（<code>yield</code>在英语里的意思就是“产出”）。</p>
+<p>调用 Generator 函数，返回一个遍历器对象，代表 Generator 函数的内部指针。每次调用遍历器对象的<code>next</code>方法，内部指针就从函数头部或上一次停下来的地方开始执行，并返回一个有着<code>value</code>和<code>done</code>两个属性的对象，直到遇到下一个<code>yield</code>表达式（或<code>return</code>语句）为止,必须要有<code>return</code>，否则 value 返回值为 return。</p>
+<p><code>value</code>属性表示当前的内部状态的值，是<code>yield</code>表达式后面那个表达式的值；<code>done</code>属性是一个布尔值，表示是否遍历结束。</p>
+<p>正常函数只能返回一个值，因为只能执行一次<code>return</code>；Generator 函数可以返回一系列的值，因为可以有任意多个<code>yield</code>。</p>
+<p>Generator 函数可以不用<code>yield</code>表达式，这时就变成了一个单纯的暂缓执行函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;执行了！&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> generator = f();</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  generator.next();</span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，函数<code>f</code>如果是普通函数，在为变量<code>generator</code>赋值时就会执行。但是，函数<code>f</code>是一个 Generator 函数，就变成只有调用<code>next</code>方法时，函数<code>f</code>才会执行。</p>
+<p>使用<code>for...of</code>语句时不需要使用<code>next</code>方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//利用 Generator 函数和`for...of`循环，实现斐波那契数列：</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">fibonacci</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> [prev, curr] = [<span class="number">0</span>, <span class="number">1</span>];</span><br><span class="line">  <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">    <span class="keyword">yield</span> curr;</span><br><span class="line">    [prev, curr] = [curr, prev + curr];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> n <span class="keyword">of</span> fibonacci()) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n &gt; <span class="number">1000</span>) <span class="keyword">break</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Generator-函数的异步应用"><a href="#Generator-函数的异步应用" class="headerlink" title="Generator 函数的异步应用"></a>Generator 函数的异步应用</h2><h3 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h3><p>协程就是多个线程共同合作，完成异步任务。</p>
+<p>协程遇到<code>yield</code>命令就暂停，去执行其他的协程，等到执行权返回，再从暂停的地方继续往后执行。<code>yield</code>命令是异步两个阶段的分界线。</p>
+<p>它的最大优点，就是代码的写法非常像同步操作，如果去除<code>yield</code>命令，简直一模一样。</p>
+<h2 id="Generator-函数的数据交换和错误处理"><a href="#Generator-函数的数据交换和错误处理" class="headerlink" title="Generator 函数的数据交换和错误处理"></a>Generator 函数的数据交换和错误处理</h2><p>Generator 函数可以暂停执行和恢复执行，这是它能封装异步任务的根本原因。除此之外，它还有两个特性，使它可以作为异步编程的完整解决方案：函数体内外的数据交换和错误处理机制。</p>
+<p><code>next</code>返回值的 value 属性，是 Generator 函数向外输出数据；<code>next</code>方法还可以接受参数，向 Generator 函数体内输入数据。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//generator的封装</span></span><br><span class="line"><span class="keyword">var</span> fetch = <span class="built_in">require</span>(<span class="string">&quot;node-fetch&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">gen</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> url = <span class="string">&quot;https://api.github.com/users/github&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="keyword">yield</span> fetch(url);</span><br><span class="line">  <span class="built_in">console</span>.log(result.bio);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> g = gen();</span><br><span class="line"><span class="keyword">var</span> result = g.next();</span><br><span class="line"></span><br><span class="line">result.value</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> data.json();</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    g.next(data);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>虽然 Generator 函数将异步操作表示得很简洁，但是流程管理却不方便（即何时执行第一阶段、何时执行第二阶段）。</p>
+<h2 id="Thunk-函数"><a href="#Thunk-函数" class="headerlink" title="Thunk 函数"></a>Thunk 函数</h2><p>编译器的“传名调用”实现，往往是将参数放到一个临时函数之中，再将这个临时函数传入函数体。这个临时函数就叫做 Thunk 函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">m</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> m * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(x + <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> thunk = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + <span class="number">5</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">thunk</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> thunk() * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>JavaScript 语言是传值调用，它的 Thunk 函数含义有所不同。在 JavaScript 语言中，Thunk 函数替换的不是表达式，而是多参数函数，将其替换成一个只接受回调函数作为参数的单参数函数。</p>
+<p>任何函数，只要参数有回调函数，就能写成 Thunk 函数的形式。下面是一个简单的 Thunk 函数转换器。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5版本</span></span><br><span class="line"><span class="keyword">var</span> Thunk = <span class="function"><span class="keyword">function</span> (<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</span><br><span class="line">      args.push(callback);</span><br><span class="line">      <span class="keyword">return</span> fn.apply(<span class="built_in">this</span>, args);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6版本</span></span><br><span class="line"><span class="keyword">const</span> Thunk = <span class="function"><span class="keyword">function</span> (<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> fn.call(<span class="built_in">this</span>, ...args, callback);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Thunk 函数可以用于 Generator 函数的自动流程管理。<code>yield</code>命令用于将程序的执行权移出 Generator 函数，那么就需要一种方法，将执行权再交还给 Generator 函数，这种方法就是 Thunk 函数，因为它可以在回调函数里，将执行权交还给 Generator 函数。</p>
+<h1 id="Async-和-await"><a href="#Async-和-await" class="headerlink" title="Async 和 await"></a>Async 和 await</h1><p>Promise 只是将异步函数编写顺序的横向扩展改写成了纵向扩展，实际代码的语义化和执行顺序仍然不清晰。Async 函数作为自带流程机的 Generator 语法糖，成为了更好的异步编程解决方案。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;使用Async实现读取图片的异步操作：</span><br><span class="line">function loadImg(src) &#123;</span><br><span class="line">  return new Promise(function (resolve, reject) &#123;</span><br><span class="line">    var img &#x3D; document.createElement(&#39;img&#39;)</span><br><span class="line">    img.onload &#x3D; function () &#123;</span><br><span class="line">      resolve(img)</span><br><span class="line">    &#125;</span><br><span class="line">    img.onerror &#x3D; function (err) &#123;</span><br><span class="line">      reject(err)</span><br><span class="line">    &#125;</span><br><span class="line">    img.src &#x3D; src</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">var src &#x3D; &#39;http:&#x2F;&#x2F;img1.qunarzz.com&#x2F;piao&#x2F;fusion&#x2F;1804&#x2F;ff&#x2F;fdf170ee89594b02.png&#39;</span><br><span class="line">var src2 &#x3D; &#39;http:&#x2F;&#x2F;img1.qunarzz.com&#x2F;sight&#x2F;p0&#x2F;1603&#x2F;1c&#x2F;1c67791edbe2677b90.img.jpg_250x250_8f1dcbbd.jpg&#39;</span><br><span class="line"></span><br><span class="line">const load &#x3D; async function () &#123;</span><br><span class="line">  const result &#x3D; await loadImg(src)</span><br><span class="line">  console.log(result)</span><br><span class="line">  const result2 &#x3D; await loadImg(src2)</span><br><span class="line">  console.log(result2)</span><br><span class="line">&#125;</span><br><span class="line">load()</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -330,10 +266,82 @@
       
 
       
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/12/07/ES6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/12/08/vue-learning/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Vue知识点梳理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/12/07/ES6-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ECMAScript入门(一)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -353,157 +361,14 @@
 
 
 
-
   
-    <article id="post-ES6-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/07/ES6-1/">ECMAScript入门(一)</a>
-    </h1>
   
 
-        
-        <a href="/2020/12/07/ES6-1/" class="archive-article-date">
-  	<time datetime="2020-12-07T07:58:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="let-、var、-const-与变量提升、暂时性死区"><a href="#let-、var、-const-与变量提升、暂时性死区" class="headerlink" title="let 、var、 const 与变量提升、暂时性死区"></a>let 、var、 const 与变量提升、暂时性死区</h1></br>
-</br>
-        
-          <a class="article-more-a" href="/2020/12/07/ES6-1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/07/hello-world/">Hello World</a>
-    </h1>
   
 
-        
-        <a href="/2020/12/07/hello-world/" class="archive-article-date">
-  	<time datetime="2020-12-07T07:37:08.564Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-        
-          <a class="article-more-a" href="/2020/12/07/hello-world/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
+
   
 
 
@@ -526,8 +391,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
