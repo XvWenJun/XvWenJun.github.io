@@ -6,20 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>ECMAScript入门(一) | 许文君(●&#39;◡&#39;●)</title>
+  <title>Tag: webpack | 许文君(●&#39;◡&#39;●)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="none">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ECMAScript入门(一)">
-<meta property="og:url" content="http://example.com/2020/12/07/ES6-1/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="许文君(●&#39;◡&#39;●)">
+<meta property="og:url" content="http://example.com/tags/webpack/index.html">
 <meta property="og:site_name" content="许文君(●&#39;◡&#39;●)">
-<meta property="og:description" content="none">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-12-07T07:58:33.000Z">
-<meta property="article:modified_time" content="2020-12-08T01:30:23.039Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="前端基础">
-<meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="许文君(●&#39;◡&#39;●)" type="application/atom+xml">
@@ -148,119 +142,52 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ES6-1" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      ECMAScript入门(一)
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/12/09/webpack/" class="archive-article-date">
+  	<time datetime="2020-12-09T01:55:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-09</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/12/09/webpack/">webpack</a>
     </h1>
   
 
-        
-        <a href="/2020/12/07/ES6-1/" class="archive-article-date">
-  	<time datetime="2020-12-07T07:58:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="let-、var、-const-与变量提升、暂时性死区"><a href="#let-、var、-const-与变量提升、暂时性死区" class="headerlink" title="let 、var、 const 与变量提升、暂时性死区"></a>let 、var、 const 与变量提升、暂时性死区</h1></br>
-</br>
-<a id="more"></a>
-
-<p>1.<code>let</code> 声明的变量，只在声明它的块级作用域内有效。let 不存在变量提升，必须在声明后使用。</p>
-<p>2.在 let 和 const 声明变量之前的代码区域，都称为暂时性死区，在这个区域内使用该变量程序会报错，使用 typeof 会报错。（而若是未声明变量，使用 typeof 反而不会报错）</p>
-<ul>
-<li><p>注意：<code>const</code>实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址所保存的数据不得改动 。</p>
-<p>3.<code>const</code>和<code>let</code>类似，区别在于必须在声明时候赋值，且一旦赋值就不可以做更改。<br>4.<code>var</code>声明的变量存在变量提升，在全局作用域内有效。在变量声明前使用 ver 指令声明的变量，值为 undefined.</p>
-</li>
-<li><p><strong>变量提升：函数的提升 &gt; var 声明的变量的提升</strong></p>
-</li>
-</ul>
-<p><font size="1" font color="#ccc">for 循环还有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域 </font></p>
-<h1 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h1><p>ES6 新增了块级作用域，并且允许仅在块级作用域中声明函数，声明的函数作用域类似于<code>let</code>声明的变量。（块级作用域内声明函数，优先使用函数表达式声明，不建议用函数声明式声明） 但是在支持 ES6 的浏览器中，函数声明类似于<code>var</code>，即会提升到全局作用域或函数作用域的头部 。</p>
-<h1 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h1><p>用法：</p>
-<ol>
-<li>交换变量的值</li>
-<li>从函数返回多个值</li>
-<li>函数参数的定义(解构赋值可以方便地将一组参数与变量名对应起来）</li>
-<li>提取 JSON 数据</li>
-</ol>
-<h1 id="字符串、函数、数组、对象的扩展"><a href="#字符串、函数、数组、对象的扩展" class="headerlink" title="字符串、函数、数组、对象的扩展"></a>字符串、函数、数组、对象的扩展</h1><p>1.引入了 for…of 遍历字符串</p>
-<p>2.新增模板字符串模板字符串中嵌入变量，需要将变量名写在<code>$&#123;&#125;</code>之中 ，大括号内部可以放入任意的 JavaScript 表达式，可以进行运算，以及引用对象属性。模板字符串之中还能调用函数。</p>
-<p>3.rest 参数 rest 参数（形式为<code>...变量名</code>），用于获取函数的多余参数，这样就不需要使用<code>arguments</code>对象了。rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。</p>
-<p>4.箭头函数用处：简化回调函数</p>
-<ul>
-<li><p>注意：函数体内的<code>this</code>对象，就是定义时所在的对象，而不是使用时所在的对象。 可以当作构造函数，也就是说，不可以使用<code>new</code>命令，否则会抛出一个错误。 不可以使用<code>arguments</code>对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。</p>
-<p>5.扩展运算符 … 只能放在数组的最后一位，否则会报错用处：复制数组、合并数组、与解构赋值结合使用、将字符串转化为真正的数组</p>
-</li>
-</ul>
-<h1 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h1><p>ES6 引入的新的一种原始数据类型（ES5 共有 6 种数据类型：number、string、Boolean、object、undefined、null）。</p>
-<p>Symbol 值通过<code>Symbol</code>函数生成，symbol 用于属性名，保证不会出现同名的属性，这对于一个对象由多个模块构成的情况非常有用，能防止某一个键被不小心改写或覆盖。</p>
-<h1 id="Set-和-Map-数据结构"><a href="#Set-和-Map-数据结构" class="headerlink" title="Set 和 Map 数据结构"></a>Set 和 Map 数据结构</h1><h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>Set 本身是一个构造函数，用来生成 Set 数据结构 。set 数据结构类似于数组，但是成员的值都是唯一的，没有重复的值.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 去除数组的重复成员</span><br><span class="line">[...new Set(array)]</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;去除字符串里面的重复字符</span><br><span class="line">[...new Set(&#39;ababbc&#39;)].join(&#39;&#39;) &#x2F;&#x2F; &quot;abc&quot;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;将set结构转化为数组</span><br><span class="line">const items &#x3D; new Set([1, 2, 3, 4, 5]);</span><br><span class="line">const array &#x3D; Array.from(items);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;去除数组重复的另外外一种写法</span><br><span class="line">function dedupe(array) &#123;</span><br><span class="line">  	return Array.from(new Set(array));</span><br><span class="line"> &#125;</span><br><span class="line">dedupe([1, 1, 2, 3]) &#x2F;&#x2F; [1, 2, 3</span><br></pre></td></tr></table></figure>
-
-<p>向 Set 加入值的时候，不会发生类型转换，所以<code>5</code>和<code>&quot;5&quot;</code>是两个不同的值。在 Set 内部，两个<code>NaN</code>是相等的，而两个对象总是不相等的。</p>
-<h3 id="WeakSet"><a href="#WeakSet" class="headerlink" title="WeakSet"></a>WeakSet</h3><p>Weakset与Set结构类似，其特点如下：</p>
-<p>1.WeakSet 的成员只能是对象，成员必须是唯一的；</p>
-<p>2.WeakSet 中的对象都是弱引用，垃圾回收机制不考虑 WeakSet 对该对象的引用，也就是说，如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，不考虑该对象还存在于 WeakSet 之中。</p>
-<p>WeakSet 适合临时存放一组对象，以及存放跟对象绑定的信息。只要这些对象在外部消失，它在 WeakSet 里面的引用就会自动消失。</p>
-<p>3.WeakSet 的成员不适合引用，也不可遍历。WeakSet 内部有多少个成员，取决于垃圾回收机制有没有运行，运行前后很可能成员个数是不一样的，而垃圾回收机制何时运行是不可预测的。</p>
-<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><p>Map 类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。</p>
-<p>Map 的键实际上是跟内存地址绑定的，只要内存地址不一样，就视为两个键。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const map &#x3D; new Map();</span><br><span class="line"></span><br><span class="line">map.set([&#39;a&#39;], 555);</span><br><span class="line">map.get([&#39;a&#39;]) &#x2F;&#x2F; undefined</span><br><span class="line">&#x2F;&#x2F;只有对同一个对象的引用，Map结构才将其视为同一个键</span><br></pre></td></tr></table></figure>
-
-<p>如果 Map 的键是一个简单类型的值（数字、字符串、布尔值），则只要两个值严格相等，Map 将其视为一个键。</p>
-<p>map 本身没有 filter、map 方法，用<code>...</code>扩展运算符可以最快捷的转化为数组。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const map0 &#x3D; new Map()</span><br><span class="line">	.set(1, &#39;a&#39;)</span><br><span class="line">	.set(2, &#39;b&#39;)</span><br><span class="line">	.set(3, &#39;c&#39;);</span><br><span class="line"></span><br><span class="line">const map1 &#x3D; new Map(  [...map0].filter(([k, v]) &#x3D;&gt; k &lt; 3) );</span><br><span class="line">&#x2F;&#x2F; 产生 Map 结构 &#123;1 &#x3D;&gt; &#39;a&#39;, 2 &#x3D;&gt; &#39;b&#39;&#125;</span><br><span class="line"></span><br><span class="line">const map2 &#x3D; new Map(  [...map0].map(([k, v]) &#x3D;&gt; [k * 2, &#39;_&#39; + v])    );</span><br><span class="line">&#x2F;&#x2F; 产生 Map 结构 &#123;2 &#x3D;&gt; &#39;_a&#39;, 4 &#x3D;&gt; &#39;_b&#39;, 6 &#x3D;&gt; &#39;_&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="WeakMap"><a href="#WeakMap" class="headerlink" title="WeakMap"></a>WeakMap</h3><p><code>WeakMap</code>结构与<code>Map</code>结构类似，也是用于生成键值对的集合，其特点如下：</p>
-<p>1.<code>WeakMap</code>只接受对象作为键名（<code>null</code>除外），不接受其他类型的值作为键名。</p>
-<p>2.<code>WeakMap</code>的键名所指向的对象，不计入垃圾回收机制（弱引用）。只要所引用的对象的其他引用都被清除，垃圾回收机制就会释放该对象所占用的内存。避免了内存泄漏。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WeakMap的专用场合就是，它的键所对应的对象，可能会在将来消失。一个典型应用场景是，在网页的 DOM 元素上添加数据，就可以使用WeakMap结构。当该 DOM 元素被清除，其所对应的WeakMap记录就会自动被移除。</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h1><p>修改某些默认操作，即对编程语言进行编程，也称为“代理”。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var proxy &#x3D; new Proxy(target, handler)</span><br></pre></td></tr></table></figure>
-
-<p><code>target</code>参数表示所要拦截的目标对象，<code>handler</code>参数也是一个对象，用来定制拦截行为。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">前端工程化</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -273,108 +200,17 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/12/07/ES6-1/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/12/07/ES6-2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          ECMAScript入门（二）
-        
-      </div>
-    </a>
   
   
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -397,9 +233,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
