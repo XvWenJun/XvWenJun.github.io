@@ -6,25 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Vue知识点梳理 | Xvwenjun</title>
+  <title>Vue总结 | 许文君(●&#39;◡&#39;●)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Vue-cli  v-html会有xss风险，会覆盖子组件。  computed有缓存，data不变不会重新计算。如果使用v-model，必须有get和set，否则会报错。  watch是浅监听，若要深度监听，使用handle、并设置deep为true，且拿不到oldvalue（因为是引用类型）。  v-if和v-show 123区别：v-show无论条件是否满足，都会生成，改变的只是displ">
+  <meta name="description" content="Vue-cli v-html 会有 xss 风险，会覆盖子组件。 computed 有缓存，data 不变不会重新计算。如果使用 v-model，必须有 get 和 set，否则会报错。  用于提高 i 性能  watch 是浅监听，若要深度监听，使用 handle、并设置 deep 为 true，且拿不到 oldvalue（因为是引用类型）。  class\style  data 为何必须">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue知识点梳理">
+<meta property="og:title" content="Vue总结">
 <meta property="og:url" content="http://example.com/2020/12/08/vue-learning/index.html">
-<meta property="og:site_name" content="Xvwenjun">
-<meta property="og:description" content="Vue-cli  v-html会有xss风险，会覆盖子组件。  computed有缓存，data不变不会重新计算。如果使用v-model，必须有get和set，否则会报错。  watch是浅监听，若要深度监听，使用handle、并设置deep为true，且拿不到oldvalue（因为是引用类型）。  v-if和v-show 123区别：v-show无论条件是否满足，都会生成，改变的只是displ">
+<meta property="og:site_name" content="许文君(●&#39;◡&#39;●)">
+<meta property="og:description" content="Vue-cli v-html 会有 xss 风险，会覆盖子组件。 computed 有缓存，data 不变不会重新计算。如果使用 v-model，必须有 get 和 set，否则会报错。  用于提高 i 性能  watch 是浅监听，若要深度监听，使用 handle、并设置 deep 为 true，且拿不到 oldvalue（因为是引用类型）。  class\style  data 为何必须">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201208161703575.png">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201209184321340.png">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201209190051740.png">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201209190219817.png">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201209163610069.png">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201209164145510.png">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201209164216084.png">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201209165311997.png">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201209180320237.png">
 <meta property="article:published_time" content="2020-12-08T07:41:47.000Z">
-<meta property="article:modified_time" content="2020-12-08T08:58:19.710Z">
+<meta property="article:modified_time" content="2020-12-10T13:57:54.618Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="前端框架">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201208161703575.png">
   
-    <link rel="alternative" href="/atom.xml" title="Xvwenjun" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="许文君(●&#39;◡&#39;●)" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -157,7 +165,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Vue知识点梳理
+      Vue总结
     </h1>
   
 
@@ -170,45 +178,199 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><p>Vue-cli</p>
-</li>
-<li><p>v-html会有xss风险，会覆盖子组件。</p>
-</li>
-<li><p>computed有缓存，data不变不会重新计算。如果使用v-model，必须有get和set，否则会报错。</p>
-</li>
-<li><p>watch是浅监听，若要深度监听，使用handle、并设置deep为true，且拿不到oldvalue（因为是引用类型）。</p>
-</li>
-<li><p>v-if和v-show</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">区别：v-show无论条件是否满足，都会生成，改变的只是display：none；</span><br><span class="line"></span><br><span class="line">使用场景：刷新不频繁用v-if，如果频繁切换用v-show，不用反复销毁</span><br></pre></td></tr></table></figure>
+        <a id="more"></a>
 
-<p>扩展：display：none，hidden的区别</p>
-</li>
+<ul>
+<li>Vue-cli</li>
+<li>v-html 会有 xss 风险，会覆盖子组件。</li>
+<li>computed 有缓存，data 不变不会重新计算。如果使用 v-model，必须有 get 和 set，否则会报错。</li>
 </ul>
+<p>用于提高 i 性能</p>
+<ul>
+<li><p>watch 是浅监听，若要深度监听，使用 handle、并设置 deep 为 true，且拿不到 oldvalue（因为是引用类型）。</p>
+</li>
+<li><p>class\style</p>
+</li>
+<li><p>data 为何必须是一个函数</p>
+</li>
+<li><p>v-if 和 v-show</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">区别：v-show通过CSS的display属性控制显示和隐藏；</span><br><span class="line">v-if组件是在DOM结构上进行渲染和销毁。</span><br><span class="line"></span><br><span class="line">使用场景：刷新不频繁用v-if，如果频繁切换用v-show，不用反复销毁。</span><br><span class="line">keep-alive是在vue实例层面去孔子</span><br></pre></td></tr></table></figure>
+
+<p>扩展：display：none，hidden 的区别</p>
 <ul>
 <li><p>v-for</p>
 </li>
 <li><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201208161703575.png" alt="image-20201208161703575"></p>
 <ul>
-<li>key的重要性</li>
+<li><p>key 的重要性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">必须用key，且不能用index和random</span><br><span class="line">diff算法中通过tag和key来判断是否是sameNode</span><br><span class="line">减少渲染次数，提升渲染的性能。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>v-for 和 v-if 不能一起用</p>
+</li>
 </ul>
 </li>
 </ul>
-<pre><code>* v-for和v-if不能一起用</code></pre>
-<p>  v-for优先级高于v-if</p>
-<ul>
+<p>v-for 优先级高于 v-if</p>
+</li>
 <li><p>事件</p>
-<p>event参数、若有自定义参数，要写成 $event，并且放在最后。</p>
-<p>event是原生的，事件被挂载在当前元素。</p>
+<p>event 参数、若有自定义参数，要写成 $event，并且放在最后。</p>
+<p>event 是原生的，事件被挂载在当前元素。</p>
+<p>事件按修饰符、按键修饰符</p>
+<p><strong>观察</strong>事件被绑定在那里？</p>
+</li>
+<li><p>v-model 表单</p>
+<p>表单修饰符 trim lazy（防抖，输入完成了才会变化）</p>
+<p>number</p>
 </li>
 </ul>
-<p>  事件按修饰符、案件修饰符</p>
-<p>  <strong>观察</strong>事件被绑定在那里？</p>
+<h4 id="父子组件通信"><a href="#父子组件通信" class="headerlink" title="父子组件通信"></a>父子组件通信</h4><p>$props</p>
+<p>将组件的所有 props 传给子组件</p>
 <ul>
-<li><p>v-model</p>
-<p>表单修饰符 trim lazy number</p>
+<li><p>组件间通讯-</p>
+<p>props</p>
+<p>$emit</p>
+</li>
+<li><p>自定义事件</p>
+<p>兄弟组件间的通信</p>
+<p>event.$emit （和 this 区分开，一个是调用父组件的能力，一个是调用实例的能力）</p>
+<p>event.$on</p>
 </li>
 </ul>
+<p>vue 实例本身有自定义事件的能力，不用绑定 bus</p>
+<p>$off 解绑事件（beforedestory 生命周期）及时销毁，否则会造成内存泄露。</p>
+<p>vuex 通信</p>
+<h4 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>ajax 放在 mounted 生命周期</p>
+<p>因为 ajax 是异步请求，js 是单线程的</p>
+<h5 id="单组件"><a href="#单组件" class="headerlink" title="单组件"></a>单组件</h5><p>挂载 更新 销毁</p>
+<p>created 和 mounted 的区别？</p>
+<p>把实例初始化，并没有开始渲染，实例挂载完成了</p>
+<p>页面上已经存在内容了</p>
+<p>beforestory</p>
+<p>解除绑定自定义事件 $off，避免内存泄漏</p>
+<p>清除定时器</p>
+<p>消除子组件</p>
+<p>事件监听器</p>
+<p>解绑自定义事件 window.scroll</p>
+<ul>
+<li>多个组件</li>
+</ul>
+<p>创建顺序：从外到内</p>
+<p>渲染顺序：从内到外</p>
+<p>更新：从外到内</p>
+<p>销毁：</p>
+<h1 id="Vue-高级特性"><a href="#Vue-高级特性" class="headerlink" title="Vue 高级特性"></a>Vue 高级特性</h1><h2 id="V-model-双向数据绑定的实现原理"><a href="#V-model-双向数据绑定的实现原理" class="headerlink" title="V-model 双向数据绑定的实现原理"></a>V-model 双向数据绑定的实现原理</h2><p>自定义 v-model</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201209184321340.png" alt="image-20201209184321340"></p>
+<h2 id="nextTick、ref-（组件更新之后如何异步获取最新的-DOM"><a href="#nextTick、ref-（组件更新之后如何异步获取最新的-DOM" class="headerlink" title="$nextTick、ref （组件更新之后如何异步获取最新的 DOM"></a>$nextTick、ref （组件更新之后如何异步获取最新的 DOM</h2><p>Vue 是异步渲染</p>
+<p>data 改变后，DOM 不会立刻渲染</p>
+<p>$nexttick 会在 DOm 渲染之后被触发，以获取最新的 DOM 节点。</p>
+<p>渲染之后在回调，页面渲染时会将 data 的修改做整合，多次修改 data 只会渲染一次</p>
+<h2 id="slot（注意-Vue-的场景题）"><a href="#slot（注意-Vue-的场景题）" class="headerlink" title="slot（注意 Vue 的场景题）"></a>slot（注意 Vue 的场景题）</h2><p>父组件向子组件中插入一些东西</p>
+<ul>
+<li>作用域插槽</li>
+</ul>
+<p>将子组件中的数据传入到插槽中</p>
+<ul>
+<li>具名插槽</li>
+</ul>
+<h2 id="动态、异步组件"><a href="#动态、异步组件" class="headerlink" title="动态、异步组件"></a>动态、异步组件</h2><p>：is=“。。。”</p>
+<ul>
+<li>import（）函数</li>
+<li>按需加载，异步加载大组件</li>
+</ul>
+<h2 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a>keep-alive</h2><p>优化性能，缓存组件</p>
+<p>场景： 频繁切换，不需要重复渲染，多个静态 Tab 页</p>
+<p>（v-show 是在 css 层级上来控制的）</p>
+<h2 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h2><p>多个组件有相同的逻辑，抽离出来</p>
+<p>变量来源不明确，不便于阅读</p>
+<p>多 mixin 会造成冲突</p>
+<p>vue3 提出的 compositionAPI 旨在解决这个问题</p>
+<h1 id="Vue-插件"><a href="#Vue-插件" class="headerlink" title="Vue 插件"></a>Vue 插件</h1><h1 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h1><p>state</p>
+<p>actions(只有在这里才能做异步操作）)</p>
+<p>mutation 不可以处理异步</p>
+<p>dispatch</p>
+<p>commit</p>
+<p>mapstate</p>
+<p>mapGetters</p>
+<p>mapActions</p>
+<p>mapMutations</p>
+<p><strong>state 的数据结构设计！！</strong></p>
+<p><strong>基本用法+使用场景+结合项目经验</strong></p>
+<h1 id="Vue-原理"><a href="#Vue-原理" class="headerlink" title="Vue 原理"></a>Vue 原理</h1><h2 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h2><p>传统组件，只是静态渲染，更新需要依赖操作 DOM</p>
+<p>数据驱动视图，更加关注于业务逻辑（数据）</p>
+<h1 id="MVVM-模型"><a href="#MVVM-模型" class="headerlink" title="MVVM 模型"></a>MVVM 模型</h1><h2 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h2><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201209190051740.png" alt="image-20201209190051740"></p>
+<p>组件 data 数据一旦变化，立刻触发视图更新</p>
+<p>监听 data 变化的核心 API-Object.defineProperty、深度监听（在设置新的值和监听的地方都要<strong>深度监听</strong>）</p>
+<p>缺点（vue3.0 采用 Proxy）</p>
+<p>1.深度监听需要需要递归到底，一次性监听量大、计算量大</p>
+<p>2.无法监听新增/删除属性，需要用 Vue.set \Vue.delete</p>
+<p>3。不具备监听数组的能力</p>
+<p>4.无法原生监听数组，需要特殊处理，否则会污染数组全局的原型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">重新定义原型，重写push、pop等方法</span><br></pre></td></tr></table></figure>
+
+<h2 id="virtual-dom-和-diff"><a href="#virtual-dom-和-diff" class="headerlink" title="virtual dom 和 diff"></a>virtual dom 和 diff</h2><p>DOM 操作非常耗费性能，而 JS 执行速度很快。</p>
+<p>数据驱动视图，如何有效控制 DOM 操作？</p>
+<p>用 JS 模拟 DOM 结构。计算出最小变更，操作 DOM</p>
+<p>Vnode 的结构：vnode h patch</p>
+<h3 id="diff-算法"><a href="#diff-算法" class="headerlink" title="diff 算法"></a>diff 算法</h3><p>树 diff 的时间复杂度 o（n^3) 算法不可用</p>
+<p>优化时间复杂度：只比较同一层级、tag 不同直接删掉重建，不在深度比较</p>
+<p>tag 和 key 两者都相同，则认为是相同节点，不再深度比较。</p>
+<p>diff 算法源码：</p>
+<p>patch（element，vnede）</p>
+<p>patch（vnode，newvnede）</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201209190219817.png" alt="image-20201209190219817"></p>
+<h2 id="模板编译（全面性）"><a href="#模板编译（全面性）" class="headerlink" title="模板编译（全面性）"></a>模板编译（全面性）</h2><p>vue 是最常用的部分，与使用相关联的原理</p>
+<p>组件渲染和更新过程</p>
+<p>heml 是标签语言，只有 JS 才能实现判断、循环（图灵完备的）</p>
+<p>因此，模板一定会转化称为某种 js 代码，即模板编译。</p>
+<ul>
+<li>with 语法</li>
+</ul>
+<p>with 能改变{}内自由变量的查找方式，将{}内的自由变量当作 obj 的属性来查找，如果找不到匹配的属性会报错。（不建议用，打破了作用域规则，易读性变差）</p>
+<ul>
+<li>vue template compiler 将模板编译为<strong>render 函数</strong></li>
+</ul>
+<p>执行 render 函数生成 vnode</p>
+<p>基于 vnode 再执行 patch 和 diff</p>
+<p>在开发环境编译模板（打包过程中就已经完成了）vue-loade</p>
+<ul>
+<li>vue 组件可以用 render 代替 template</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vnode描述一个DOM结构</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="渲染过程"><a href="#渲染过程" class="headerlink" title="渲染过程"></a>渲染过程</h2><h2 id="初次渲染"><a href="#初次渲染" class="headerlink" title="初次渲染"></a>初次渲染</h2><ul>
+<li>解析模板为 render 函数（或在开发环境已经完成 vue-loader）</li>
+<li>执行 render，触发响应式，监听 data 属性 getter setter</li>
+<li>执行 render 函数，生成 vnode，patch（elem，vnode）</li>
+<li>重新执行 render 函数，newnode</li>
+<li>patch（vnode，newvnode）</li>
+</ul>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201209163610069.png" alt="image-20201209163610069"></p>
+<p>更新过程</p>
+<h1 id="异步渲染"><a href="#异步渲染" class="headerlink" title="异步渲染"></a>异步渲染</h1><p>￥ nextTick（）汇总 data 的修改，一次性更新视图，减少 DOM 操作次数、提高性能</p>
+<p>js 修改 DOM 很容易，但是每修改一次，浏览器就重新渲染一次，非常消耗性能。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201209164145510.png" alt="image-20201209164145510"><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201209164216084.png" alt="image-20201209164216084"></h2><p><font color="red"> <strong>流程的全面化、完整</strong></font></p>
+<h2 id="前端路由-vue-router"><a href="#前端路由-vue-router" class="headerlink" title="前端路由 vue-router"></a>前端路由 vue-router</h2><p>稍复杂的 SPA 都需要路由</p>
+<h1 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h1><h3 id="路由模式"><a href="#路由模式" class="headerlink" title="路由模式"></a>路由模式</h3><h5 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h5><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201209165311997.png" alt="image-20201209165311997"></p>
+<p>window.onhashchange</p>
+<h5 id="H5history（需要-server-支持"><a href="#H5history（需要-server-支持" class="headerlink" title="H5history（需要 server 支持)"></a>H5history（需要 server 支持)</h5><p>history.pushState(,)</p>
+<p>window.onpopstate</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201209180320237.png" alt="image-20201209180320237"></p>
+<h3 id="路由配置（动态路由、懒加载）"><a href="#路由配置（动态路由、懒加载）" class="headerlink" title="路由配置（动态路由、懒加载）"></a>路由配置（动态路由、懒加载）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">前端路由的实现原理？</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Vue-常见性能优化"><a href="#Vue-常见性能优化" class="headerlink" title="Vue 常见性能优化"></a>Vue 常见性能优化</h1><p>v-show 和 v-if</p>
+<p>合理使用 compoted</p>
+<p>v-for 加 key，不和 v-if 同时使用</p>
+<p>自定义、DOM 事件要及时销毁，避免内存泄漏</p>
+<p>合理使用异步组件、keep-alive</p>
+<p>data 层级不要太深，响应式深度监听需要一次性遍历完</p>
+<p>v-loader 在开发环境做模板编译（预编译）</p>
+<p>webpack 层面优化</p>
+<p>通用性能优化：图片懒加载</p>
+<p>使用 SSR</p>
 
       
 
@@ -307,8 +469,17 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/12/09/vue3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          vue3
+        
+      </div>
+    </a>
   
-    <a href="/2020/12/07/ES6/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2020/12/07/ES6-2/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">ECMAScript入门（二）</div>
       <i class="icon-circle-right"></i>
     </a>
