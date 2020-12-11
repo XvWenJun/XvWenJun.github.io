@@ -144,12 +144,99 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JS-WebAPI" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/11/JS-WebAPI/">JS-WebAPI</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/11/JS-WebAPI/" class="archive-article-date">
+  	<time datetime="2020-12-11T07:47:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-11</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="DOM-树"><a href="#DOM-树" class="headerlink" title="DOM(树)"></a>DOM(树)</h1><p>DOM是什么？</p>
+<p>DOM操作：节点操作、结构操作</p>
+<ul>
+<li><p>获取、新增、插入、获取子节点/父节点、删除</p>
+</li>
+<li><p>attribute （修改的是节点属性，会改变html结构）</p>
+</li>
+<li><p>property  (修改的是Jscript对象的属性)</p>
+</li>
+<li><p>nodeName nodeType</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211163248997.png" alt="image-20201211163248997"></p>
+</li>
+</ul>
+<p>创建一个文档片段，此时还没有插入DOM结构中。</p>
+<p>document.createDocumentFragment</p>
+<h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h1><ul>
+<li><p>navigator</p>
+<p> navigator.userAgent 各浏览器的ua检测方法</p>
+<p>screen.width</p>
+</li>
+<li><p>location</p>
+</li>
+</ul>
+<p>location.href</p>
+<p>location.protocol</p>
+<p>location.host</p>
+<p>location.search 查询参数</p>
+<p>location.hash</p>
+<p>location.pathname</p>
+<ul>
+<li><p>history</p>
+<p>history.back</p>
+<p>history.forward</p>
+</li>
+</ul>
+<h1 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//编写一个通用的事件监听函数、代理</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bindEvent</span>(<span class="params">elem,type,fn</span>)</span>&#123;</span><br><span class="line">    elem.addEventListener(type,fn)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> btn1 = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;btn1&#x27;</span>)</span><br><span class="line">bindeEvent(btn1,<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="params">event</span>=&gt;</span>&#123;</span><br><span class="line">    event.preventDefault</span><br><span class="line">    <span class="built_in">console</span>.log(event.target)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><p>基于DOM树形结构，顺着出触发元素向上冒泡，</p>
+<p>应用场景：事件代理</p>
+<h3 id="事件代理"><a href="#事件代理" class="headerlink" title="事件代理"></a>事件代理</h3><p>代码简洁，减少浏览器内存占用。</p>
+<p>无限下拉的图片列表，如何监听每个图片的点击？</p>
+<p>event.stopPropagation</p>
+<p>event.preventDefault</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211202136405.png" alt="image-20201211202136405"></p>
+<h1 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//手写简易ajax</span></span><br><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">xhr.open(<span class="string">&quot;GET&quot;</span>,<span class="string">&quot;/api&quot;</span>,<span class="literal">false</span>)</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(xhr.readyState===<span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(xhr.status===<span class="number">200</span>)&#123;</span><br><span class="line">           <span class="built_in">console</span>.log(</span><br><span class="line">           <span class="built_in">JSON</span>.parse(xhr.responseText)</span><br><span class="line">           )</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            其他情况</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//const postData =. ...</span></span><br><span class="line">xhr.send(<span class="literal">null</span>)</span><br><span class="line"><span class="comment">//xhr.send(JSON.Stringfy(postData))</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h3><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211210711715.png" alt="image-20201211210711715"></p>
+<h3 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h3><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211210945553.png" alt="image-20201211210945553"></p>
+<h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p>服务器可以仍以动态拼接数据返回，只要符合html格式要求。</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211211823633.png" alt="image-20201211211823633"></p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211212627013.png" alt="image-20201211212627013"></p>
+<h2 id="Fetch请求"><a href="#Fetch请求" class="headerlink" title="Fetch请求"></a>Fetch请求</h2><h3 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h3><h2 id="CORS-服务器设置http-header"><a href="#CORS-服务器设置http-header" class="headerlink" title="CORS 服务器设置http header"></a>CORS 服务器设置http header</h2><h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><h3 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h3><h4 id="跨域解决方案"><a href="#跨域解决方案" class="headerlink" title="跨域解决方案"></a>跨域解决方案</h4><h1 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h1><ul>
+<li>cookie</li>
+</ul>
+<p>cookie本身用于浏览器和server通讯，由于以前没有本地存储的能力，cookie被“借用”到本地存储来（字符串）</p>
+<p>同一个key会覆盖，不同key会追加，不同于其他的API。</p>
+<p>最大存储4KB</p>
+<p>http请求时需要发送到服务端，增加请求数据量</p>
+<p>只能用document.cookie来修改，API太过简陋</p>
+<ul>
+<li> localStorage 数据会永久存储，除非手动删除，最大5M</li>
+</ul>
+<p>API简单易用，localStorage.setItem  （会强制类型转换为字符串）</p>
+<p>localStorage.getItem</p>
+<p>不会随着http请求被发送出去</p>
+<ul>
+<li>sessionStorage 只存在当前会话，浏览器关闭则自动清空</li>
+</ul>
+<p>容量、API、是否跟随http请求发送</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211154913093.png" alt="image-20201211154913093"></p>
+
       
 
       
@@ -157,6 +244,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -290,8 +388,44 @@
 <li><p>场景题</p>
 </li>
 </ul>
-<h1 id="JS-异步原理和进阶"><a href="#JS-异步原理和进阶" class="headerlink" title="JS 异步原理和进阶"></a>JS 异步原理和进阶</h1><h2 id="event-loop"><a href="#event-loop" class="headerlink" title="event loop"></a>event loop</h2><p>Jscript 是单线程的，异步需要回调来实现。事件循环就是异步回调机制的实现原理</p>
-<h2 id="promise-进阶"><a href="#promise-进阶" class="headerlink" title="promise 进阶"></a>promise 进阶</h2><h2 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h2><h2 id="微任务-宏任务"><a href="#微任务-宏任务" class="headerlink" title="微任务/宏任务"></a>微任务/宏任务</h2>
+<h1 id="JS-异步原理和进阶"><a href="#JS-异步原理和进阶" class="headerlink" title="JS 异步原理和进阶"></a>JS 异步原理和进阶</h1><h2 id="event-loop"><a href="#event-loop" class="headerlink" title="event loop"></a>event loop</h2><p>Jscript 是单线程的，异步需要回调来实现。事件循环就是异步回调机制的实现原理。</p>
+<ol>
+<li>同步任务先存放在主线程执行栈中开始执行</li>
+<li>异步任务存放在事件队列中等待，等待时机（网络请求、定时器）</li>
+<li>一旦同步任务执行完，就会启动事件循环，将存放在事件队列里的异步任务取入执行栈中执行。</li>
+<li>继续循环查找（loop）</li>
+</ol>
+<p>DOM事件也是基于回调来触发事件的，同样基于eventloop。</p>
+<h2 id="promise-进阶"><a href="#promise-进阶" class="headerlink" title="promise 进阶"></a>promise 进阶</h2><p>Promise的三种状态：pending、resolved、rejected</p>
+<p>pending状态不会触发回调，resolved状态触发then回调，rejected状态触发catch回调。</p>
+<p>then和catch对状态的影响</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211092948591.png" alt="image-20201211092948591"></p>
+<p>只有pending—&gt; resolved 或 pending —-&gt; rejected    </p>
+<p>且变化不可逆</p>
+<p>**链式调用！！！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h2><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211094918474.png" alt="image-20201211094918474"></p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211113219978.png" alt="image-20201211113219978"></p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211124008995.png" alt="image-20201211124008995"></p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211143402917.png" alt="image-20201211143402917"></p>
+<h2 id="微任务-宏任务"><a href="#微任务-宏任务" class="headerlink" title="微任务/宏任务"></a>微任务/宏任务</h2><ul>
+<li>macroTask宏任务：settimeout、setinterval、ajax、DOM事件</li>
+</ul>
+<p>在DOM渲染后触发（放在WebAPIs里面）（浏览器规定的）</p>
+<ul>
+<li>microTask微任务：promise、async/await、</li>
+</ul>
+<p>在DOM渲染前触发（ES6语法规定的）（放在micro task queue里）</p>
+<p>微任务执行时机比宏任务早</p>
+<h4 id="event-loop和DOM渲染"><a href="#event-loop和DOM渲染" class="headerlink" title="event loop和DOM渲染"></a>event loop和DOM渲染</h4><p>JS单线程，且和DOM渲染共用一个线程。JS执行的时候，需要留一些时机给DOM渲染。</p>
+<ul>
+<li>当callstack空闲（每次轮询结束），即同步任务执行完，先尝试DOM渲染，才开始触发event loop</li>
+</ul>
+<h1 id="描述EventLoop机制"><a href="#描述EventLoop机制" class="headerlink" title="描述EventLoop机制"></a>描述EventLoop机制</h1><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211152315738.png" alt="image-20201211152315738"></p>
+
       
 
       

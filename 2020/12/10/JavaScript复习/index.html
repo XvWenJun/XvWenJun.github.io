@@ -31,8 +31,14 @@
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210164309691.png">
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210210842874.png">
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210211256646.png">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201211092948591.png">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201211094918474.png">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201211113219978.png">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201211124008995.png">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201211143402917.png">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201211152315738.png">
 <meta property="article:published_time" content="2020-12-10T12:55:07.000Z">
-<meta property="article:modified_time" content="2020-12-10T14:08:15.675Z">
+<meta property="article:modified_time" content="2020-12-11T07:46:24.982Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="前端基础，Javascript">
 <meta name="twitter:card" content="summary">
@@ -267,8 +273,44 @@
 <li><p>场景题</p>
 </li>
 </ul>
-<h1 id="JS-异步原理和进阶"><a href="#JS-异步原理和进阶" class="headerlink" title="JS 异步原理和进阶"></a>JS 异步原理和进阶</h1><h2 id="event-loop"><a href="#event-loop" class="headerlink" title="event loop"></a>event loop</h2><p>Jscript 是单线程的，异步需要回调来实现。事件循环就是异步回调机制的实现原理</p>
-<h2 id="promise-进阶"><a href="#promise-进阶" class="headerlink" title="promise 进阶"></a>promise 进阶</h2><h2 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h2><h2 id="微任务-宏任务"><a href="#微任务-宏任务" class="headerlink" title="微任务/宏任务"></a>微任务/宏任务</h2>
+<h1 id="JS-异步原理和进阶"><a href="#JS-异步原理和进阶" class="headerlink" title="JS 异步原理和进阶"></a>JS 异步原理和进阶</h1><h2 id="event-loop"><a href="#event-loop" class="headerlink" title="event loop"></a>event loop</h2><p>Jscript 是单线程的，异步需要回调来实现。事件循环就是异步回调机制的实现原理。</p>
+<ol>
+<li>同步任务先存放在主线程执行栈中开始执行</li>
+<li>异步任务存放在事件队列中等待，等待时机（网络请求、定时器）</li>
+<li>一旦同步任务执行完，就会启动事件循环，将存放在事件队列里的异步任务取入执行栈中执行。</li>
+<li>继续循环查找（loop）</li>
+</ol>
+<p>DOM事件也是基于回调来触发事件的，同样基于eventloop。</p>
+<h2 id="promise-进阶"><a href="#promise-进阶" class="headerlink" title="promise 进阶"></a>promise 进阶</h2><p>Promise的三种状态：pending、resolved、rejected</p>
+<p>pending状态不会触发回调，resolved状态触发then回调，rejected状态触发catch回调。</p>
+<p>then和catch对状态的影响</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211092948591.png" alt="image-20201211092948591"></p>
+<p>只有pending—&gt; resolved 或 pending —-&gt; rejected    </p>
+<p>且变化不可逆</p>
+<p>**链式调用！！！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h2><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211094918474.png" alt="image-20201211094918474"></p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211113219978.png" alt="image-20201211113219978"></p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211124008995.png" alt="image-20201211124008995"></p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211143402917.png" alt="image-20201211143402917"></p>
+<h2 id="微任务-宏任务"><a href="#微任务-宏任务" class="headerlink" title="微任务/宏任务"></a>微任务/宏任务</h2><ul>
+<li>macroTask宏任务：settimeout、setinterval、ajax、DOM事件</li>
+</ul>
+<p>在DOM渲染后触发（放在WebAPIs里面）（浏览器规定的）</p>
+<ul>
+<li>microTask微任务：promise、async/await、</li>
+</ul>
+<p>在DOM渲染前触发（ES6语法规定的）（放在micro task queue里）</p>
+<p>微任务执行时机比宏任务早</p>
+<h4 id="event-loop和DOM渲染"><a href="#event-loop和DOM渲染" class="headerlink" title="event loop和DOM渲染"></a>event loop和DOM渲染</h4><p>JS单线程，且和DOM渲染共用一个线程。JS执行的时候，需要留一些时机给DOM渲染。</p>
+<ul>
+<li>当callstack空闲（每次轮询结束），即同步任务执行完，先尝试DOM渲染，才开始触发event loop</li>
+</ul>
+<h1 id="描述EventLoop机制"><a href="#描述EventLoop机制" class="headerlink" title="描述EventLoop机制"></a>描述EventLoop机制</h1><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211152315738.png" alt="image-20201211152315738"></p>
+
       
 
       
@@ -351,11 +393,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/12/10/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/12/11/JS-WebAPI/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          JS-WebAPI
         
       </div>
     </a>
