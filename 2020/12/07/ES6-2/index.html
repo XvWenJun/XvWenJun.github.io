@@ -16,8 +16,9 @@
 <meta property="og:description" content="Promise异步编程">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201207171610979.png">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201211143402917.png">
 <meta property="article:published_time" content="2020-12-07T08:21:25.000Z">
-<meta property="article:modified_time" content="2020-12-10T13:40:14.113Z">
+<meta property="article:modified_time" content="2020-12-13T10:50:49.637Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="前端基础">
 <meta property="article:tag" content="ES6">
@@ -184,14 +185,24 @@
 
 <p>Promise 是一种更合理的异步编程解决方案，可以用同步操作的流程将异步操作表达出来，其特点如下：</p>
 <ul>
-<li>只有 pending、fulfilled、rejected 三种状态，状态仅由异步操作的结果决定，任何操作都无法改变这一状态。状态一旦改变，就再也不会变化（这也是“promise”的由来）。</li>
-<li>promise 的状态改变，有两种可能：从 pending 变为 fulfilled、从 pending 变为 rejected，只要这两种变化发生，状态就凝固为 resolved。</li>
+<li><p>只有 pending、resolved、rejected 三种状态，状态仅由异步操作的结果决定，状态一旦改变，就再也不会变化（这也是“promise”的由来）。</p>
+</li>
+<li><p><strong>pending状态不会触发回调，resolved状态触发then回调，rejected状态触发catch回调。</strong></p>
+</li>
+</ul>
+<ul>
 <li>任何时候都可以获取该回调结果。如果改变已经发生了，你再对<code>Promise</code>对象添加回调函数，也会立即得到这个结果。这与事件（Event）完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的</li>
 </ul>
 <p><strong>缺点：</strong></p>
 <ul>
 <li>必须要添加回调函数，才能将 promise 内部抛出的错误反映出来。</li>
-<li>promise 函数一旦创建就会<strong>立即执行</strong>，无法取消无法知道 promise 的执行状态（当处于 pending 状态时，无法确定是刚开始的状态、还是即将完成）</li>
+<li>promise 函数一旦创建就会<strong>立即执行</strong>，无法取消</li>
+<li>无法知道 promise 的执行状态（当处于 pending 状态时，无法确定是刚开始的状态、还是即将完成）</li>
+</ul>
+<h5 id="链式调用"><a href="#链式调用" class="headerlink" title="*链式调用"></a>*链式调用</h5><p><font color = "red"> then和catch对状态的影响：</font></p>
+<ul>
+<li>then正常则返回resolved，里面报错则返回rejected</li>
+<li>catch正常则返回resolved，里面报错则返回rejected</li>
 </ul>
 <h1 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h1><h2 id="Generator-函数"><a href="#Generator-函数" class="headerlink" title="Generator 函数"></a>Generator 函数</h2><p>Generator 函数是 ES6 提供的一种异步编程解决方案。</p>
 <p>语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。</p>
@@ -222,8 +233,21 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5版本</span></span><br><span class="line"><span class="keyword">var</span> Thunk = <span class="function"><span class="keyword">function</span> (<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</span><br><span class="line">      args.push(callback);</span><br><span class="line">      <span class="keyword">return</span> fn.apply(<span class="built_in">this</span>, args);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6版本</span></span><br><span class="line"><span class="keyword">const</span> Thunk = <span class="function"><span class="keyword">function</span> (<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> fn.call(<span class="built_in">this</span>, ...args, callback);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>Thunk 函数可以用于 Generator 函数的自动流程管理。<code>yield</code>命令用于将程序的执行权移出 Generator 函数，那么就需要一种方法，将执行权再交还给 Generator 函数，这种方法就是 Thunk 函数，因为它可以在回调函数里，将执行权交还给 Generator 函数。</p>
-<h1 id="Async-和-await"><a href="#Async-和-await" class="headerlink" title="Async 和 await"></a>Async 和 await</h1><p>Promise 只是将异步函数编写顺序的横向扩展改写成了纵向扩展，实际代码的语义化和执行顺序仍然不清晰。Async 函数作为自带流程机的 Generator 语法糖，成为了更好的异步编程解决方案。</p>
+<h1 id="Async-和-await"><a href="#Async-和-await" class="headerlink" title="Async 和 await"></a>Async 和 await</h1><p>Promise 只是将异步函数编写顺序的横向扩展改写成了纵向扩展，仍然是基于回调函数，实际代码的语义化和执行顺序仍然不清晰。Async 函数作为自带流程机的 Generator 语法糖，async/await利用同步语法，成为了更好的异步编程解决方案。</p>
+<h3 id="Async-await和Promise的关系"><a href="#Async-await和Promise的关系" class="headerlink" title="Async/await和Promise的关系"></a>Async/await和Promise的关系</h3><ul>
+<li><strong>执行async函数，返回的是Promise对象！</strong></li>
+<li><strong>await相当于Promise的then</strong></li>
+<li><strong>try…catch可以捕获异常，代替了Promise的catch</strong></li>
+</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用Async实现读取图片的异步操作：</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadImg</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> img = <span class="built_in">document</span>.createElement(<span class="string">&#x27;img&#x27;</span>)</span><br><span class="line">    img.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      resolve(img)</span><br><span class="line">    &#125;</span><br><span class="line">    img.onerror = <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">      reject(err)</span><br><span class="line">    &#125;</span><br><span class="line">    img.src = src</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> src = <span class="string">&#x27;http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png&#x27;</span></span><br><span class="line"><span class="keyword">var</span> src2 = <span class="string">&#x27;http://img1.qunarzz.com/sight/p0/1603/1c/1c67791edbe2677b90.img.jpg_250x250_8f1dcbbd.jpg&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> load = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> loadImg(src)</span><br><span class="line">  <span class="built_in">console</span>.log(result)</span><br><span class="line">  <span class="keyword">const</span> result2 = <span class="keyword">await</span> loadImg(src2)</span><br><span class="line">  <span class="built_in">console</span>.log(result2)</span><br><span class="line">&#125;</span><br><span class="line">load()</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="同步遍历、异步遍历"><a href="#同步遍历、异步遍历" class="headerlink" title="同步遍历、异步遍历"></a>同步遍历、异步遍历</h1><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211143402917.png" alt="image-20201211143402917"></p>
+<h1 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h1><p>箭头函数是ES6引入的新语法，使用箭头函数的作用有两点：</p>
+<p>1.函数的书写更加简洁</p>
+<p>2.不绑定this，this指向上下文</p>
+<p>*注意：this不能用作构造函数！！</p>
 
       
 
@@ -487,11 +511,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">前端基础，CSS，HTML</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发环境</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发环境</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>JavaScript复习 | 许文君(●&#39;◡&#39;●)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="变量类型和计算值类型和引用类型本质是堆栈模型不同，考虑到存储性能的问题，把值类型存储在栈中，而引用类型是把地址存在栈中，而地址指向的内容存放在堆中。 常见值类型：undefined、string、number、boolean、symbol 常见引用类型：null、object、[ ] 、 fn( ){ }(特殊，没有复制、引用这些说法) 12typeof可以判断几种类型？常见值类型、functio">
+  <meta name="description" content="一、变量类型和计算值类型和引用类型本质是堆栈模型不同，考虑到存储性能的问题，把值类型存储在栈中，而引用类型是把地址存在栈中，而地址指向的内容存放在堆中。 常见值类型：undefined、string、number、boolean、symbol 常见引用类型：null、object、[ ] 、 fn( ){ }(特殊，没有复制、引用这些说法) 12typeof可以判断几种类型？常见值类型、funct">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript复习">
 <meta property="og:url" content="http://example.com/2020/12/10/JavaScript%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name" content="许文君(●&#39;◡&#39;●)">
-<meta property="og:description" content="变量类型和计算值类型和引用类型本质是堆栈模型不同，考虑到存储性能的问题，把值类型存储在栈中，而引用类型是把地址存在栈中，而地址指向的内容存放在堆中。 常见值类型：undefined、string、number、boolean、symbol 常见引用类型：null、object、[ ] 、 fn( ){ }(特殊，没有复制、引用这些说法) 12typeof可以判断几种类型？常见值类型、functio">
+<meta property="og:description" content="一、变量类型和计算值类型和引用类型本质是堆栈模型不同，考虑到存储性能的问题，把值类型存储在栈中，而引用类型是把地址存在栈中，而地址指向的内容存放在堆中。 常见值类型：undefined、string、number、boolean、symbol 常见引用类型：null、object、[ ] 、 fn( ){ }(特殊，没有复制、引用这些说法) 12typeof可以判断几种类型？常见值类型、funct">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210153807108.png">
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210161324072.png">
@@ -22,23 +22,16 @@
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210202137084.png">
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210203037143.png">
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210203513822.png">
+<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210163304971.png">
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210165352560.png">
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210165402374.png">
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210194636590.png">
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210165721618.png">
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210194833657.png">
-<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210163304971.png">
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210164309691.png">
 <meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210210842874.png">
-<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201210211256646.png">
-<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201211092948591.png">
-<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201211094918474.png">
-<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201211113219978.png">
-<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201211124008995.png">
-<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201211143402917.png">
-<meta property="og:image" content="c:/Users/11609/AppData/Roaming/Typora/typora-user-images/image-20201211152315738.png">
 <meta property="article:published_time" content="2020-12-10T12:55:07.000Z">
-<meta property="article:modified_time" content="2020-12-11T07:46:24.982Z">
+<meta property="article:modified_time" content="2020-12-13T11:51:27.396Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="前端基础，Javascript">
 <meta name="twitter:card" content="summary">
@@ -190,7 +183,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="变量类型和计算"><a href="#变量类型和计算" class="headerlink" title="变量类型和计算"></a>变量类型和计算</h1><h2 id="值类型和引用类型"><a href="#值类型和引用类型" class="headerlink" title="值类型和引用类型"></a>值类型和引用类型</h2><p>本质是堆栈模型不同，考虑到存储性能的问题，把值类型存储在栈中，而引用类型是把地址存在栈中，而地址指向的内容存放在堆中。</p>
+        <h1 id="一、变量类型和计算"><a href="#一、变量类型和计算" class="headerlink" title="一、变量类型和计算"></a>一、变量类型和计算</h1><h2 id="值类型和引用类型"><a href="#值类型和引用类型" class="headerlink" title="值类型和引用类型"></a>值类型和引用类型</h2><p>本质是堆栈模型不同，考虑到存储性能的问题，把值类型存储在栈中，而引用类型是把地址存在栈中，而地址指向的内容存放在堆中。</p>
 <p>常见值类型：undefined、string、number、boolean、symbol</p>
 <p>常见引用类型：null、object、[ ] 、 fn( ){ }(特殊，没有复制、引用这些说法)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">typeof可以判断几种类型？</span><br><span class="line">常见值类型、function、object（不可以再细分了）</span><br></pre></td></tr></table></figure>
@@ -206,7 +199,7 @@
 
 <p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210161324072.png" alt="image-20201210161324072"></p>
 <p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210161354695.png" alt="image-20201210161354695"></p>
-<h1 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h1><h2 id="class-和继承"><a href="#class-和继承" class="headerlink" title="class 和继承"></a>class 和继承</h2><p>constructor</p>
+<h1 id="二、原型和原型链"><a href="#二、原型和原型链" class="headerlink" title="二、原型和原型链"></a>二、原型和原型链</h1><h2 id="class-和继承"><a href="#class-和继承" class="headerlink" title="class 和继承"></a>class 和继承</h2><p>constructor</p>
 <p>属性</p>
 <p>方法</p>
 <hr>
@@ -233,7 +226,9 @@
 <h2 id="如何判断一个变量是不是数组？"><a href="#如何判断一个变量是不是数组？" class="headerlink" title="如何判断一个变量是不是数组？"></a>如何判断一个变量是不是数组？</h2><p>instanceof Array</p>
 <h3 id="class-的原型本质，怎么理解？"><a href="#class-的原型本质，怎么理解？" class="headerlink" title="class 的原型本质，怎么理解？"></a>class 的原型本质，怎么理解？</h3><p>原型和原型链的图示</p>
 <p>属性和方法</p>
-<h1 id="作用域和闭包"><a href="#作用域和闭包" class="headerlink" title="作用域和闭包"></a>作用域和闭包</h1><h2 id="this-的不同应用场景"><a href="#this-的不同应用场景" class="headerlink" title="this 的不同应用场景"></a>this 的不同应用场景</h2><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210165352560.png" alt="image-20201210165352560"></p>
+<h1 id="三、作用域和闭包"><a href="#三、作用域和闭包" class="headerlink" title="三、作用域和闭包"></a>三、作用域和闭包</h1><h2 id="作用域和自由变量"><a href="#作用域和自由变量" class="headerlink" title="作用域和自由变量"></a>作用域和自由变量</h2><p>全局作用域、函数作用域、块级作用域</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210163304971.png" alt="image-20201210163304971"></p>
+<h3 id="this-的不同应用场景"><a href="#this-的不同应用场景" class="headerlink" title="this 的不同应用场景"></a>this 的不同应用场景</h3><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210165352560.png" alt="image-20201210165352560"></p>
 <p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210165402374.png" alt="image-20201210165402374"></p>
 <p><strong>this 取值是在执行时确认的，而不是在执行的时候确定的！！！！！！</strong></p>
 <p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210194636590.png" alt="image-20201210194636590"></p>
@@ -241,75 +236,56 @@
 <p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210165721618.png" alt="image-20201210165721618"></p>
 <p>setTimeout 的 this 是 window</p>
 <p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210194833657.png" alt="image-20201210194833657"></p>
-<h2 id="手写-bind-函数"><a href="#手写-bind-函数" class="headerlink" title="手写 bind 函数"></a>手写 bind 函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind1=<span class="function"><span class="title">fuction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//将参数拆解为数组</span></span><br><span class="line">    <span class="keyword">const</span> args = Arry.prototype.slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">    <span class="comment">//获取this</span></span><br><span class="line">    <span class="keyword">const</span> t = args.shift( )</span><br><span class="line">    <span class="comment">//fn1.bind(...)中的fn1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> self = <span class="built_in">this</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> self.apply(t,args)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="手写-bind-函数"><a href="#手写-bind-函数" class="headerlink" title="手写 bind 函数"></a>手写 bind 函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind1=<span class="function"><span class="title">fuction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//将参数拆解为数组</span></span><br><span class="line">    <span class="keyword">const</span> args = Arry.prototype.slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">    <span class="comment">//获取this</span></span><br><span class="line">    <span class="keyword">const</span> t = args.shift( )</span><br><span class="line">    <span class="comment">//fn1.bind(...)中的fn1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> self = <span class="built_in">this</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> self.apply(t,args)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="作用域和自由变量"><a href="#作用域和自由变量" class="headerlink" title="作用域和自由变量"></a>作用域和自由变量</h2><p>全局作用域</p>
-<p>函数作用域</p>
-<p>块级作用域</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210163304971.png" alt="image-20201210163304971"></p>
-<h1 id="闭包在实际应用中的场景"><a href="#闭包在实际应用中的场景" class="headerlink" title="闭包在实际应用中的场景"></a>闭包在实际应用中的场景</h1><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210164309691.png" alt="image-20201210164309691"></p>
+
+
+<h2 id="闭包在实际应用中的场景"><a href="#闭包在实际应用中的场景" class="headerlink" title="闭包在实际应用中的场景"></a>闭包在实际应用中的场景</h2><h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包的产生与变量的作用域有关，由于JS中变量的查找是从内往外查找的，内部的变量可以访问外部变量，但是外部的变量无法访问内部的变量。</p>
+<p>因此，如果要从外部读取函数内部的局部变量，就要使用闭包，即能读取其他函数内部的变量的函数。</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210164309691.png" alt="image-20201210164309691"></p>
 <p>所有自由变量查找都是从定义的作用域开始向上查找</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">closure; <span class="comment">//函数作为返回值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">create</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">100</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fn = create();</span><br><span class="line"><span class="keyword">const</span> a = <span class="number">200</span>;</span><br><span class="line">fn(); <span class="comment">//100</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数作为参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> a = <span class="number">200</span>;</span><br><span class="line">  fn();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line">print(fn); <span class="comment">//100</span></span><br><span class="line"><span class="comment">//从函数定义的作用域开始向上级作用域查找，而不是在执行的地方开始查找</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="闭包隐藏数据，只提供-API"><a href="#闭包隐藏数据，只提供-API" class="headerlink" title="闭包隐藏数据，只提供 API"></a>闭包隐藏数据，只提供 API</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createCache</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> data = &#123;&#125;<span class="comment">//闭包中的数据，被隐藏，不能被外界访问</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        set:<span class="function"><span class="keyword">function</span>(<span class="params">key,value</span>)</span>&#123;</span><br><span class="line">            data[key]=value</span><br><span class="line">        &#125;</span><br><span class="line">        get:<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> data[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="读取函数内部的变量，让这些变量的值始终保存在内存中"><a href="#读取函数内部的变量，让这些变量的值始终保存在内存中" class="headerlink" title="读取函数内部的变量，让这些变量的值始终保存在内存中"></a>读取函数内部的变量，让这些变量的值始终保存在内存中</h4><h4 id="闭包隐藏数据，只提供-API"><a href="#闭包隐藏数据，只提供-API" class="headerlink" title="闭包隐藏数据，只提供 API"></a>闭包隐藏数据，只提供 API</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createCache</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> data = &#123;&#125;<span class="comment">//闭包中的数据，被隐藏，不能被外界访问</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        set:<span class="function"><span class="keyword">function</span>(<span class="params">key,value</span>)</span>&#123;</span><br><span class="line">            data[key]=value</span><br><span class="line">        &#125;</span><br><span class="line">        get:<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> data[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="用于-for-循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域"><a href="#用于-for-循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域" class="headerlink" title="用于 for 循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域"></a>用于 for 循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域</h3><h1 id="异步和单线程"><a href="#异步和单线程" class="headerlink" title="异步和单线程"></a>异步和单线程</h1><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210210842874.png" alt="image-20201210210842874"></p>
-<p>异步不会阻塞代码执行，同步会阻塞代码执行。</p>
-<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210211256646.png" alt="image-20201210211256646"></p>
-<h3 id="callback-hell-和-promise"><a href="#callback-hell-和-promise" class="headerlink" title="callback hell 和 promise"></a>callback hell 和 promise</h3><h2 id=""><a href="#" class="headerlink" title="-"></a>-</h2><ul>
-<li>同步和异步的区别？</li>
-</ul>
-<p>基于 JS 是单线程语言，异步不会阻塞，同步会阻塞执行。</p>
-<ul>
-<li>手写 Promise 加载一张图片</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadImg</span>(<span class="params">src</span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="用于-for-循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域"><a href="#用于-for-循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域" class="headerlink" title="用于 for 循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域"></a>用于 for 循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域</h4><h1 id="四、事件循环"><a href="#四、事件循环" class="headerlink" title="四、事件循环"></a>四、事件循环</h1><h2 id="异步和单线程"><a href="#异步和单线程" class="headerlink" title="异步和单线程"></a>异步和单线程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">同步和异步的区别？</span><br><span class="line"></span><br><span class="line">基于 JS 是单线程语言，异步不会阻塞代码执行，同步会阻塞代码执行。</span><br></pre></td></tr></table></figure>
 
-<ul>
+
+
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210210842874.png" alt="image-20201210210842874"></p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ol>
+<li>网络请求，如ajax图片加载</li>
+<li>定时任务，如setTimeout</li>
+</ol>
+<h3 id="callback-hell-和-promise"><a href="#callback-hell-和-promise" class="headerlink" title="callback hell 和 promise"></a>callback hell 和 promise</h3><ul>
+<li><p>手写 Promise 加载一张图片</p>
+</li>
 <li><p>前端使用异步的场景有哪些？</p>
 </li>
 <li><p>场景题</p>
 </li>
 </ul>
-<h1 id="JS-异步原理和进阶"><a href="#JS-异步原理和进阶" class="headerlink" title="JS 异步原理和进阶"></a>JS 异步原理和进阶</h1><h2 id="event-loop"><a href="#event-loop" class="headerlink" title="event loop"></a>event loop</h2><p>Jscript 是单线程的，异步需要回调来实现。事件循环就是异步回调机制的实现原理。</p>
+<h2 id="event-loop"><a href="#event-loop" class="headerlink" title="event loop"></a>event loop</h2><p>Jscript 是单线程的，异步需要回调来实现。事件循环就是异步回调机制的实现原理。</p>
 <ol>
 <li>同步任务先存放在主线程执行栈中开始执行</li>
-<li>异步任务存放在事件队列中等待，等待时机（网络请求、定时器）</li>
+<li>异步任务存放在任务队列（task queue）中等待，等待时机（网络请求、定时器）</li>
 <li>一旦同步任务执行完，就会启动事件循环，将存放在事件队列里的异步任务取入执行栈中执行。</li>
-<li>继续循环查找（loop）</li>
+<li>继续轮询查找（loop），这个过程不断重复，称为事件循环。</li>
 </ol>
 <p>DOM事件也是基于回调来触发事件的，同样基于eventloop。</p>
-<h2 id="promise-进阶"><a href="#promise-进阶" class="headerlink" title="promise 进阶"></a>promise 进阶</h2><p>Promise的三种状态：pending、resolved、rejected</p>
-<p>pending状态不会触发回调，resolved状态触发then回调，rejected状态触发catch回调。</p>
-<p>then和catch对状态的影响</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211092948591.png" alt="image-20201211092948591"></p>
-<p>只有pending—&gt; resolved 或 pending —-&gt; rejected    </p>
-<p>且变化不可逆</p>
-<p>**链式调用！！！</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="微任务-宏任务"><a href="#微任务-宏任务" class="headerlink" title="微任务/宏任务"></a>微任务/宏任务</h3><p>不同的异步任务会被分入到不同的任务队列中，其中可以分为宏任务、微任务。<strong>微任务执行时机比宏任务早。</strong></p>
+<h4 id="macroTask宏任务：ettimeout、setinterval、ajax、DOM事件"><a href="#macroTask宏任务：ettimeout、setinterval、ajax、DOM事件" class="headerlink" title="macroTask宏任务：ettimeout、setinterval、ajax、DOM事件"></a>macroTask宏任务：ettimeout、setinterval、ajax、DOM事件</h4><p>在DOM渲染后触发（放在WebAPIs里面）（浏览器规定的）</p>
+<h4 id="microTask微任务：promise、async-await、"><a href="#microTask微任务：promise、async-await、" class="headerlink" title="microTask微任务：promise、async/await、"></a>microTask微任务：promise、async/await、</h4><p>在DOM渲染前触发（放在microtask queue里)（ES6语法规定的）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于宏任务是在DOM渲染后才触发的，所以如果有大量的DOM操作，为了更快的响应界面，可以把DOM操作放在微任务（DOM渲染前）中执行。</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h2><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211094918474.png" alt="image-20201211094918474"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211113219978.png" alt="image-20201211113219978"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211124008995.png" alt="image-20201211124008995"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211143402917.png" alt="image-20201211143402917"></p>
-<h2 id="微任务-宏任务"><a href="#微任务-宏任务" class="headerlink" title="微任务/宏任务"></a>微任务/宏任务</h2><ul>
-<li>macroTask宏任务：settimeout、setinterval、ajax、DOM事件</li>
-</ul>
-<p>在DOM渲染后触发（放在WebAPIs里面）（浏览器规定的）</p>
-<ul>
-<li>microTask微任务：promise、async/await、</li>
-</ul>
-<p>在DOM渲染前触发（ES6语法规定的）（放在micro task queue里）</p>
-<p>微任务执行时机比宏任务早</p>
-<h4 id="event-loop和DOM渲染"><a href="#event-loop和DOM渲染" class="headerlink" title="event loop和DOM渲染"></a>event loop和DOM渲染</h4><p>JS单线程，且和DOM渲染共用一个线程。JS执行的时候，需要留一些时机给DOM渲染。</p>
+<h3 id="event-loop和DOM渲染"><a href="#event-loop和DOM渲染" class="headerlink" title="event loop和DOM渲染"></a>event loop和DOM渲染</h3><p>JS是单线程的，且和DOM渲染共用一个线程。JS执行的时候，需要留一些时机给DOM渲染。</p>
 <ul>
 <li>当callstack空闲（每次轮询结束），即同步任务执行完，先尝试DOM渲染，才开始触发event loop</li>
 </ul>
-<h1 id="描述EventLoop机制"><a href="#描述EventLoop机制" class="headerlink" title="描述EventLoop机制"></a>描述EventLoop机制</h1><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211152315738.png" alt="image-20201211152315738"></p>
 
       
 
@@ -558,11 +534,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">前端基础，CSS，HTML</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发环境</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发环境</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
             <div class="clearfix"></div>

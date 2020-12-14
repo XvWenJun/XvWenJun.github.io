@@ -144,49 +144,85 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-性能优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/12/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+      <a class="article-title" href="/2020/12/13/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化及安全</a>
     </h1>
   
 
         
-        <a href="/2020/12/12/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-12-12T12:29:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12</time>
+        <a href="/2020/12/13/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="archive-article-date">
+  	<time datetime="2020-12-13T11:53:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212203023233.png" alt="image-20201212203023233"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212205816010.png" alt="image-20201212205816010"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212205921665.png" alt="image-20201212205921665"></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">funciton <span class="function"><span class="title">isObject</span>(<span class="params">object</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> object===<span class="string">&#x27;object&#x27;</span>&amp;&amp;object!==<span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line">funciton <span class="function"><span class="title">isEqual</span>(<span class="params">obj1,obj2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!isObject(obj1)||!isObject(obj2))&#123;</span><br><span class="line">        <span class="keyword">return</span> obj1===obj2</span><br><span class="line">        <span class="comment">//若不是对象类型，直接判断值是否相等</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(obj1===obj2)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//先比较key的个数是否相等</span></span><br><span class="line">    <span class="keyword">const</span> obj1Keys = Object1.keys(obj1)</span><br><span class="line">    <span class="keyword">const</span> obj2Keys=Object2.keys(obj2)</span><br><span class="line">    <span class="keyword">if</span>(obj1Keys!===obj2Keys)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//以obj1为基准，依次递归比较</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj1)&#123;</span><br><span class="line">        <span class="keyword">const</span> res = isEqual(obj1[key],obj2[key])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!res)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>原则：多使用内存、缓存</p>
+<p>减少CPU计算量，减少网络加载耗时</p>
+<p>（空间换时间——适用于所有的编程性能优化）</p>
+<ul>
+<li><p>加载更快：</p>
+</li>
+<li><ul>
+<li><p>减少代码体积，压缩代码</p>
+</li>
+<li><p>减少访问次数，合并代码、SSR服务器端渲染 、缓存、精灵图</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212165308862.png" alt="image-20201212165308862"></p>
+</li>
+<li><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212165857363.png" alt="image-20201212165857363"></p>
+</li>
+<li><p>使用更快的网络CDN</p>
+</li>
+</ul>
+</li>
+<li><p>渲染更快</p>
+</li>
+<li><ul>
+<li>CSS放在head js放在body后</li>
+<li>尽早执行JS，用DOMContentLoad触发</li>
+<li>图片懒加载，下滑加载更多</li>
+<li>对DOM查询进行缓存</li>
+<li>频繁DOM操作，合并后再插入DOM结构中</li>
+<li>节流throttle　防抖debounce</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">为什么JS要放在body后面呢？</span><br><span class="line">因为JS解析和DOM渲染共用一个线程，如果先加载JS，会造成堵塞，页面可能会出现卡顿，解析完JS才继续加载页面。</span><br><span class="line">将JS放在页面渲染之后才加载,让用户先看到内容,用户体验会更好.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">为什么说DOM操作是昂贵的?</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-<h1 id="数组API"><a href="#数组API" class="headerlink" title="数组API"></a>数组API</h1><p>push、pop、unshifi、shitf非纯数组，<strong>返回操作数</strong>，在原数组上做修改</p>
-<p>concat 返回新数组，是纯函数</p>
-<p>map   对数组中的每一个元素都执行函数，纯函数，返回的是一个数组</p>
-<p>filter 纯函数，过滤出符合条件的元素组成的新数组</p>
-<p>slice 纯函数  类似做了一个深拷贝</p>
-<p>在react中是一个非常重要的概念</p>
-<p>foreach非纯函数</p>
-<p>some every</p>
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>闭包的内存得不到释放，会一直占用。</p>
-<p>如何减少DOM操作</p>
-<p>1.缓存查询</p>
-<p>2.频繁的DOmain操作可以先打包，放入文档片段，再统一插入到DOM中</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212220106864.png" alt="image-20201212220106864"></p>
-<img> 
 
-<script>可以绕过跨域
+
+<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><p>目的：降低回调函数的执行频率，节省计算资源。</p>
+<p>使用场景:</p>
+<ol>
+<li>搜索框搜索输入，只在输入完成后才调用搜索词联想的事件</li>
+<li>表单验证，只在最后一次输入完成后触发检测</li>
+<li>窗口大小Resize</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//防抖,频繁触发的事件,一定时间后才触发回调,在这段时间内若再次触发,则重新计时（一定时间内 ，只触发最后一次）</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">func,delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(timer)&#123;</span><br><span class="line">            <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">        &#125;</span><br><span class="line">        timer=<span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            func.applay(<span class="built_in">this</span>,arg);</span><br><span class="line">            timer=<span class="literal">null</span></span><br><span class="line">        &#125;,delay)</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><p>使用场景：</p>
+<ol>
+<li>高频的点击事件（比如轮播图的切换、表单提交按钮）</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//节流,频繁触发的事件，一定时间内只执行一次</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func,dealy</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer= <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(timer)&#123;</span><br><span class="line">        <span class="keyword">return</span> </span><br><span class="line">    &#125;  </span><br><span class="line">        timer=<span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">           fn.apply(<span class="built_in">this</span>,<span class="built_in">arguments</span>)</span><br><span class="line">            timer=<span class="literal">null</span></span><br><span class="line">        &#125;,delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><p>常见web前端攻击方式?</p>
+<p>XSS跨站请求攻击</p>
+<p>XSRF跨站请求伪造</p>
+
       
 
       
@@ -224,19 +260,181 @@
 
 
   
-    <article id="post-开发环境" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="“-计算机网络" class="article article-type-“  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/12/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境、运行环境</a>
+      <a class="article-title" href="/2020/12/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
     </h1>
   
 
         
-        <a href="/2020/12/12/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="archive-article-date">
+        <a href="/2020/12/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="archive-article-date">
+  	<time datetime="2020-12-13T09:05:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/12/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/12/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-12-12T12:29:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212203023233.png" alt="image-20201212203023233"></p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212205816010.png" alt="image-20201212205816010"></p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212205921665.png" alt="image-20201212205921665"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">funciton <span class="function"><span class="title">isObject</span>(<span class="params">object</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> object===<span class="string">&#x27;object&#x27;</span>&amp;&amp;object!==<span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line">funciton <span class="function"><span class="title">isEqual</span>(<span class="params">obj1,obj2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!isObject(obj1)||!isObject(obj2))&#123;</span><br><span class="line">        <span class="keyword">return</span> obj1===obj2</span><br><span class="line">        <span class="comment">//若不是对象类型，直接判断值是否相等</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(obj1===obj2)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//先比较key的个数是否相等</span></span><br><span class="line">    <span class="keyword">const</span> obj1Keys = Object1.keys(obj1)</span><br><span class="line">    <span class="keyword">const</span> obj2Keys=Object2.keys(obj2)</span><br><span class="line">    <span class="keyword">if</span>(obj1Keys!===obj2Keys)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//以obj1为基准，依次递归比较</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj1)&#123;</span><br><span class="line">        <span class="keyword">const</span> res = isEqual(obj1[key],obj2[key])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!res)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="数组API"><a href="#数组API" class="headerlink" title="数组API"></a>数组API</h1><p>push、pop、unshifi、shitf非纯数组，<strong>返回操作数</strong>，在原数组上做修改</p>
+<p>concat 返回新数组，是纯函数</p>
+<p>map   对数组中的每一个元素都执行函数，纯函数，返回的是一个数组</p>
+<p>filter 纯函数，过滤出符合条件的元素组成的新数组</p>
+<p>slice 纯函数  类似做了一个深拷贝</p>
+<p>在react中是一个非常重要的概念</p>
+<p>foreach非纯函数</p>
+<p>some every</p>
+<p>splice非纯函数，拼接，在原数组上做修改，返回删除的元素</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>变量常驻内存，闭包的内存得不到释放，会一直占用。</p>
+<p>如何减少DOM操作</p>
+<p>1.缓存查询</p>
+<p>2.频繁的DOmain操作可以先打包，放入文档片段，再统一插入到DOM中</p>
+<p>event.preventDefault</p>
+<p>event.stopPropagation</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201213085655052.png" alt="image-20201213085655052"></p>
+<p>var变量提升，只提升变量，不提升值，在变量赋值之前使用不报错但是值是undefined。</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201213090431055.png" alt="image-20201213090431055"></p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212220106864.png" alt="image-20201212220106864"></p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201213104915465.png" alt="image-20201213104915465"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//手写trim方法，保证浏览器兼容性</span></span><br><span class="line"><span class="built_in">String</span>.prototype.trim=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.replace(<span class="regexp">/^\s+/</span>,<span class="string">&#x27;&#x27;</span>).replace(<span class="regexp">/\s+$/</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取多个数字中的最大值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> nums =Arry.prototype.slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">    <span class="keyword">let</span> max = <span class="number">0</span></span><br><span class="line">    nums.firEach(<span class="function"><span class="params">n</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n&gt;max)&#123;</span><br><span class="line">            max=n</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> max</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.max(<span class="number">10</span>,<span class="number">20</span>,<span class="number">30.</span>..)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//如何用js 实现继承</span></span><br><span class="line"><span class="class"><span class="keyword">class</span>继承</span></span><br><span class="line"><span class="class"><span class="title">prototype</span>继承</span></span><br><span class="line"><span class="class"></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201213105936094.png" alt="image-20201213105936094"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将url参数解析为js对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">queryToObj</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">const</span> res=&#123;&#125;</span><br><span class="line">    <span class="keyword">const</span> pList = <span class="keyword">new</span> URLSearchParams(location.search)</span><br><span class="line">pList.forEach(<span class="function">(<span class="params">val,key</span>)=&gt;</span>&#123;</span><br><span class="line">    res[key]=val</span><br><span class="line">&#125;)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//手写flatern考虑多层级</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flat</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> isDeep = arry.some(<span class="function"><span class="params">item</span>=&gt;</span>item <span class="keyword">instanceof</span> <span class="built_in">Array</span>)</span><br><span class="line"><span class="keyword">if</span>(!idDeep)&#123;</span><br><span class="line">    <span class="keyword">return</span> arr<span class="comment">//已经是flatern</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> res = <span class="built_in">Array</span>.prototype.concat.apply([],arr)</span><br><span class="line"><span class="keyword">return</span> flat(res)<span class="comment">//递归</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数组去重</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniqe</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> res = []</span><br><span class="line">    arr.forEach(<span class="function"><span class="params">item</span>=&gt;</span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(res.indexOf(item)&lt;<span class="number">0</span>)&#123;</span><br><span class="line">            res.push(item)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fucntion <span class="function"><span class="title">unique</span>(<span class="params">arr </span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>(arr)</span><br><span class="line">    <span class="keyword">return</span> [...set]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//无序结构、不能重复</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Object.assign不是深拷贝！！！！！</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201213131254967.png" alt="image-20201213131254967"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-开发环境及运行环境" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/12/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%8F%8A%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/">开发环境、运行环境</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/12/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%8F%8A%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/" class="archive-article-date">
   	<time datetime="2020-12-12T03:04:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12</time>
 </a>
         
@@ -304,49 +502,6 @@
 <p>避免页面渲染时间过长。</p>
 </li>
 </ul>
-<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>原则：多使用内存、缓存</p>
-<p>减少CPU计算量，减少网络加载耗时</p>
-<p>（空间换时间——适用于所有的编程性能优化）</p>
-<ul>
-<li><p>加载更快：</p>
-</li>
-<li><ul>
-<li><p>减少代码体积，压缩代码</p>
-</li>
-<li><p>减少访问次数，合并代码、SSR服务器端渲染 、缓存、精灵图</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212165308862.png" alt="image-20201212165308862"></p>
-</li>
-<li><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212165857363.png" alt="image-20201212165857363"></p>
-</li>
-<li><p>使用更快的网络CDN</p>
-</li>
-</ul>
-</li>
-<li><p>渲染更快</p>
-</li>
-<li><ul>
-<li>CSS放在head js放在body后</li>
-<li>尽早执行JS，用DOMContentLoad触发</li>
-<li>图片懒加载，下滑加载更多</li>
-<li>对DOM查询进行缓存</li>
-<li>频繁DOM操作，合并后再插入DOM结构中</li>
-<li>节流throttle　防抖debounce</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//防抖,频繁触发的事件,一定时间后才触发回调,在这段时间内若再次触发,则重新计时</span></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//节流,连续触发的元素(鼠标拖拽),无论拖拽多快,都只触发最后一次</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func,dealy</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer= <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(timer)&#123;</span><br><span class="line">        <span class="keyword">return</span> </span><br><span class="line">    &#125;  </span><br><span class="line">        timer=<span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">           fn.apply(<span class="built_in">this</span>,<span class="built_in">arguments</span>)</span><br><span class="line">            timer=<span class="literal">null</span></span><br><span class="line">        &#125;,delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><p>常见web前端攻击方式?</p>
-<p>XSS跨站请求攻击</p>
-<p>XSRF跨站请求伪造</p>
 
       
 
@@ -689,7 +844,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="变量类型和计算"><a href="#变量类型和计算" class="headerlink" title="变量类型和计算"></a>变量类型和计算</h1><h2 id="值类型和引用类型"><a href="#值类型和引用类型" class="headerlink" title="值类型和引用类型"></a>值类型和引用类型</h2><p>本质是堆栈模型不同，考虑到存储性能的问题，把值类型存储在栈中，而引用类型是把地址存在栈中，而地址指向的内容存放在堆中。</p>
+        <h1 id="一、变量类型和计算"><a href="#一、变量类型和计算" class="headerlink" title="一、变量类型和计算"></a>一、变量类型和计算</h1><h2 id="值类型和引用类型"><a href="#值类型和引用类型" class="headerlink" title="值类型和引用类型"></a>值类型和引用类型</h2><p>本质是堆栈模型不同，考虑到存储性能的问题，把值类型存储在栈中，而引用类型是把地址存在栈中，而地址指向的内容存放在堆中。</p>
 <p>常见值类型：undefined、string、number、boolean、symbol</p>
 <p>常见引用类型：null、object、[ ] 、 fn( ){ }(特殊，没有复制、引用这些说法)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">typeof可以判断几种类型？</span><br><span class="line">常见值类型、function、object（不可以再细分了）</span><br></pre></td></tr></table></figure>
@@ -705,7 +860,7 @@
 
 <p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210161324072.png" alt="image-20201210161324072"></p>
 <p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210161354695.png" alt="image-20201210161354695"></p>
-<h1 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h1><h2 id="class-和继承"><a href="#class-和继承" class="headerlink" title="class 和继承"></a>class 和继承</h2><p>constructor</p>
+<h1 id="二、原型和原型链"><a href="#二、原型和原型链" class="headerlink" title="二、原型和原型链"></a>二、原型和原型链</h1><h2 id="class-和继承"><a href="#class-和继承" class="headerlink" title="class 和继承"></a>class 和继承</h2><p>constructor</p>
 <p>属性</p>
 <p>方法</p>
 <hr>
@@ -732,7 +887,9 @@
 <h2 id="如何判断一个变量是不是数组？"><a href="#如何判断一个变量是不是数组？" class="headerlink" title="如何判断一个变量是不是数组？"></a>如何判断一个变量是不是数组？</h2><p>instanceof Array</p>
 <h3 id="class-的原型本质，怎么理解？"><a href="#class-的原型本质，怎么理解？" class="headerlink" title="class 的原型本质，怎么理解？"></a>class 的原型本质，怎么理解？</h3><p>原型和原型链的图示</p>
 <p>属性和方法</p>
-<h1 id="作用域和闭包"><a href="#作用域和闭包" class="headerlink" title="作用域和闭包"></a>作用域和闭包</h1><h2 id="this-的不同应用场景"><a href="#this-的不同应用场景" class="headerlink" title="this 的不同应用场景"></a>this 的不同应用场景</h2><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210165352560.png" alt="image-20201210165352560"></p>
+<h1 id="三、作用域和闭包"><a href="#三、作用域和闭包" class="headerlink" title="三、作用域和闭包"></a>三、作用域和闭包</h1><h2 id="作用域和自由变量"><a href="#作用域和自由变量" class="headerlink" title="作用域和自由变量"></a>作用域和自由变量</h2><p>全局作用域、函数作用域、块级作用域</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210163304971.png" alt="image-20201210163304971"></p>
+<h3 id="this-的不同应用场景"><a href="#this-的不同应用场景" class="headerlink" title="this 的不同应用场景"></a>this 的不同应用场景</h3><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210165352560.png" alt="image-20201210165352560"></p>
 <p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210165402374.png" alt="image-20201210165402374"></p>
 <p><strong>this 取值是在执行时确认的，而不是在执行的时候确定的！！！！！！</strong></p>
 <p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210194636590.png" alt="image-20201210194636590"></p>
@@ -740,75 +897,56 @@
 <p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210165721618.png" alt="image-20201210165721618"></p>
 <p>setTimeout 的 this 是 window</p>
 <p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210194833657.png" alt="image-20201210194833657"></p>
-<h2 id="手写-bind-函数"><a href="#手写-bind-函数" class="headerlink" title="手写 bind 函数"></a>手写 bind 函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind1=<span class="function"><span class="title">fuction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//将参数拆解为数组</span></span><br><span class="line">    <span class="keyword">const</span> args = Arry.prototype.slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">    <span class="comment">//获取this</span></span><br><span class="line">    <span class="keyword">const</span> t = args.shift( )</span><br><span class="line">    <span class="comment">//fn1.bind(...)中的fn1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> self = <span class="built_in">this</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> self.apply(t,args)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="手写-bind-函数"><a href="#手写-bind-函数" class="headerlink" title="手写 bind 函数"></a>手写 bind 函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind1=<span class="function"><span class="title">fuction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//将参数拆解为数组</span></span><br><span class="line">    <span class="keyword">const</span> args = Arry.prototype.slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">    <span class="comment">//获取this</span></span><br><span class="line">    <span class="keyword">const</span> t = args.shift( )</span><br><span class="line">    <span class="comment">//fn1.bind(...)中的fn1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> self = <span class="built_in">this</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> self.apply(t,args)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="作用域和自由变量"><a href="#作用域和自由变量" class="headerlink" title="作用域和自由变量"></a>作用域和自由变量</h2><p>全局作用域</p>
-<p>函数作用域</p>
-<p>块级作用域</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210163304971.png" alt="image-20201210163304971"></p>
-<h1 id="闭包在实际应用中的场景"><a href="#闭包在实际应用中的场景" class="headerlink" title="闭包在实际应用中的场景"></a>闭包在实际应用中的场景</h1><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210164309691.png" alt="image-20201210164309691"></p>
+
+
+<h2 id="闭包在实际应用中的场景"><a href="#闭包在实际应用中的场景" class="headerlink" title="闭包在实际应用中的场景"></a>闭包在实际应用中的场景</h2><h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包的产生与变量的作用域有关，由于JS中变量的查找是从内往外查找的，内部的变量可以访问外部变量，但是外部的变量无法访问内部的变量。</p>
+<p>因此，如果要从外部读取函数内部的局部变量，就要使用闭包，即能读取其他函数内部的变量的函数。</p>
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210164309691.png" alt="image-20201210164309691"></p>
 <p>所有自由变量查找都是从定义的作用域开始向上查找</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">closure; <span class="comment">//函数作为返回值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">create</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">100</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fn = create();</span><br><span class="line"><span class="keyword">const</span> a = <span class="number">200</span>;</span><br><span class="line">fn(); <span class="comment">//100</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数作为参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> a = <span class="number">200</span>;</span><br><span class="line">  fn();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line">print(fn); <span class="comment">//100</span></span><br><span class="line"><span class="comment">//从函数定义的作用域开始向上级作用域查找，而不是在执行的地方开始查找</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="闭包隐藏数据，只提供-API"><a href="#闭包隐藏数据，只提供-API" class="headerlink" title="闭包隐藏数据，只提供 API"></a>闭包隐藏数据，只提供 API</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createCache</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> data = &#123;&#125;<span class="comment">//闭包中的数据，被隐藏，不能被外界访问</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        set:<span class="function"><span class="keyword">function</span>(<span class="params">key,value</span>)</span>&#123;</span><br><span class="line">            data[key]=value</span><br><span class="line">        &#125;</span><br><span class="line">        get:<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> data[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="读取函数内部的变量，让这些变量的值始终保存在内存中"><a href="#读取函数内部的变量，让这些变量的值始终保存在内存中" class="headerlink" title="读取函数内部的变量，让这些变量的值始终保存在内存中"></a>读取函数内部的变量，让这些变量的值始终保存在内存中</h4><h4 id="闭包隐藏数据，只提供-API"><a href="#闭包隐藏数据，只提供-API" class="headerlink" title="闭包隐藏数据，只提供 API"></a>闭包隐藏数据，只提供 API</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createCache</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> data = &#123;&#125;<span class="comment">//闭包中的数据，被隐藏，不能被外界访问</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        set:<span class="function"><span class="keyword">function</span>(<span class="params">key,value</span>)</span>&#123;</span><br><span class="line">            data[key]=value</span><br><span class="line">        &#125;</span><br><span class="line">        get:<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> data[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="用于-for-循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域"><a href="#用于-for-循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域" class="headerlink" title="用于 for 循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域"></a>用于 for 循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域</h3><h1 id="异步和单线程"><a href="#异步和单线程" class="headerlink" title="异步和单线程"></a>异步和单线程</h1><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210210842874.png" alt="image-20201210210842874"></p>
-<p>异步不会阻塞代码执行，同步会阻塞代码执行。</p>
-<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210211256646.png" alt="image-20201210211256646"></p>
-<h3 id="callback-hell-和-promise"><a href="#callback-hell-和-promise" class="headerlink" title="callback hell 和 promise"></a>callback hell 和 promise</h3><h2 id=""><a href="#" class="headerlink" title="-"></a>-</h2><ul>
-<li>同步和异步的区别？</li>
-</ul>
-<p>基于 JS 是单线程语言，异步不会阻塞，同步会阻塞执行。</p>
-<ul>
-<li>手写 Promise 加载一张图片</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadImg</span>(<span class="params">src</span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="用于-for-循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域"><a href="#用于-for-循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域" class="headerlink" title="用于 for 循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域"></a>用于 for 循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域</h4><h1 id="四、事件循环"><a href="#四、事件循环" class="headerlink" title="四、事件循环"></a>四、事件循环</h1><h2 id="异步和单线程"><a href="#异步和单线程" class="headerlink" title="异步和单线程"></a>异步和单线程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">同步和异步的区别？</span><br><span class="line"></span><br><span class="line">基于 JS 是单线程语言，异步不会阻塞代码执行，同步会阻塞代码执行。</span><br></pre></td></tr></table></figure>
 
-<ul>
+
+
+<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210210842874.png" alt="image-20201210210842874"></p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ol>
+<li>网络请求，如ajax图片加载</li>
+<li>定时任务，如setTimeout</li>
+</ol>
+<h3 id="callback-hell-和-promise"><a href="#callback-hell-和-promise" class="headerlink" title="callback hell 和 promise"></a>callback hell 和 promise</h3><ul>
+<li><p>手写 Promise 加载一张图片</p>
+</li>
 <li><p>前端使用异步的场景有哪些？</p>
 </li>
 <li><p>场景题</p>
 </li>
 </ul>
-<h1 id="JS-异步原理和进阶"><a href="#JS-异步原理和进阶" class="headerlink" title="JS 异步原理和进阶"></a>JS 异步原理和进阶</h1><h2 id="event-loop"><a href="#event-loop" class="headerlink" title="event loop"></a>event loop</h2><p>Jscript 是单线程的，异步需要回调来实现。事件循环就是异步回调机制的实现原理。</p>
+<h2 id="event-loop"><a href="#event-loop" class="headerlink" title="event loop"></a>event loop</h2><p>Jscript 是单线程的，异步需要回调来实现。事件循环就是异步回调机制的实现原理。</p>
 <ol>
 <li>同步任务先存放在主线程执行栈中开始执行</li>
-<li>异步任务存放在事件队列中等待，等待时机（网络请求、定时器）</li>
+<li>异步任务存放在任务队列（task queue）中等待，等待时机（网络请求、定时器）</li>
 <li>一旦同步任务执行完，就会启动事件循环，将存放在事件队列里的异步任务取入执行栈中执行。</li>
-<li>继续循环查找（loop）</li>
+<li>继续轮询查找（loop），这个过程不断重复，称为事件循环。</li>
 </ol>
 <p>DOM事件也是基于回调来触发事件的，同样基于eventloop。</p>
-<h2 id="promise-进阶"><a href="#promise-进阶" class="headerlink" title="promise 进阶"></a>promise 进阶</h2><p>Promise的三种状态：pending、resolved、rejected</p>
-<p>pending状态不会触发回调，resolved状态触发then回调，rejected状态触发catch回调。</p>
-<p>then和catch对状态的影响</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211092948591.png" alt="image-20201211092948591"></p>
-<p>只有pending—&gt; resolved 或 pending —-&gt; rejected    </p>
-<p>且变化不可逆</p>
-<p>**链式调用！！！</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="微任务-宏任务"><a href="#微任务-宏任务" class="headerlink" title="微任务/宏任务"></a>微任务/宏任务</h3><p>不同的异步任务会被分入到不同的任务队列中，其中可以分为宏任务、微任务。<strong>微任务执行时机比宏任务早。</strong></p>
+<h4 id="macroTask宏任务：ettimeout、setinterval、ajax、DOM事件"><a href="#macroTask宏任务：ettimeout、setinterval、ajax、DOM事件" class="headerlink" title="macroTask宏任务：ettimeout、setinterval、ajax、DOM事件"></a>macroTask宏任务：ettimeout、setinterval、ajax、DOM事件</h4><p>在DOM渲染后触发（放在WebAPIs里面）（浏览器规定的）</p>
+<h4 id="microTask微任务：promise、async-await、"><a href="#microTask微任务：promise、async-await、" class="headerlink" title="microTask微任务：promise、async/await、"></a>microTask微任务：promise、async/await、</h4><p>在DOM渲染前触发（放在microtask queue里)（ES6语法规定的）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于宏任务是在DOM渲染后才触发的，所以如果有大量的DOM操作，为了更快的响应界面，可以把DOM操作放在微任务（DOM渲染前）中执行。</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h2><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211094918474.png" alt="image-20201211094918474"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211113219978.png" alt="image-20201211113219978"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211124008995.png" alt="image-20201211124008995"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211143402917.png" alt="image-20201211143402917"></p>
-<h2 id="微任务-宏任务"><a href="#微任务-宏任务" class="headerlink" title="微任务/宏任务"></a>微任务/宏任务</h2><ul>
-<li>macroTask宏任务：settimeout、setinterval、ajax、DOM事件</li>
-</ul>
-<p>在DOM渲染后触发（放在WebAPIs里面）（浏览器规定的）</p>
-<ul>
-<li>microTask微任务：promise、async/await、</li>
-</ul>
-<p>在DOM渲染前触发（ES6语法规定的）（放在micro task queue里）</p>
-<p>微任务执行时机比宏任务早</p>
-<h4 id="event-loop和DOM渲染"><a href="#event-loop和DOM渲染" class="headerlink" title="event loop和DOM渲染"></a>event loop和DOM渲染</h4><p>JS单线程，且和DOM渲染共用一个线程。JS执行的时候，需要留一些时机给DOM渲染。</p>
+<h3 id="event-loop和DOM渲染"><a href="#event-loop和DOM渲染" class="headerlink" title="event loop和DOM渲染"></a>event loop和DOM渲染</h3><p>JS是单线程的，且和DOM渲染共用一个线程。JS执行的时候，需要留一些时机给DOM渲染。</p>
 <ul>
 <li>当callstack空闲（每次轮询结束），即同步任务执行完，先尝试DOM渲染，才开始触发event loop</li>
 </ul>
-<h1 id="描述EventLoop机制"><a href="#描述EventLoop机制" class="headerlink" title="描述EventLoop机制"></a>描述EventLoop机制</h1><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211152315738.png" alt="image-20201211152315738"></p>
 
       
 
@@ -894,7 +1032,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">前端基础，CSS，HTML</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
         		</li>
       		
 		</ul>
@@ -1382,181 +1528,10 @@
 
 
   
-    <article id="post-ES6-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/07/ES6-2/">ECMAScript入门（二）</a>
-    </h1>
-  
-
-        
-        <a href="/2020/12/07/ES6-2/" class="archive-article-date">
-  	<time datetime="2020-12-07T08:21:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><h2 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h2>
-        
-          <a class="article-more-a" href="/2020/12/07/ES6-2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ES6-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/07/ES6-1/">ECMAScript入门(一)</a>
-    </h1>
-  
-
-        
-        <a href="/2020/12/07/ES6-1/" class="archive-article-date">
-  	<time datetime="2020-12-07T07:58:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="let-、var、-const-与变量提升、暂时性死区"><a href="#let-、var、-const-与变量提升、暂时性死区" class="headerlink" title="let 、var、 const 与变量提升、暂时性死区"></a>let 、var、 const 与变量提升、暂时性死区</h1></br>
-</br>
-        
-          <a class="article-more-a" href="/2020/12/07/ES6-1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
@@ -1678,11 +1653,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">前端基础，CSS，HTML</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发环境</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发环境</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
             <div class="clearfix"></div>
