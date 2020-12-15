@@ -164,7 +164,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2>
+        <h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2></br>
         
           <a class="article-more-a" href="/2020/12/13/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/#more">more >></a>
         
@@ -283,49 +283,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212203023233.png" alt="image-20201212203023233"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212205816010.png" alt="image-20201212205816010"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212205921665.png" alt="image-20201212205921665"></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">funciton <span class="function"><span class="title">isObject</span>(<span class="params">object</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> object===<span class="string">&#x27;object&#x27;</span>&amp;&amp;object!==<span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line">funciton <span class="function"><span class="title">isEqual</span>(<span class="params">obj1,obj2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!isObject(obj1)||!isObject(obj2))&#123;</span><br><span class="line">        <span class="keyword">return</span> obj1===obj2</span><br><span class="line">        <span class="comment">//若不是对象类型，直接判断值是否相等</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(obj1===obj2)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//先比较key的个数是否相等</span></span><br><span class="line">    <span class="keyword">const</span> obj1Keys = Object1.keys(obj1)</span><br><span class="line">    <span class="keyword">const</span> obj2Keys=Object2.keys(obj2)</span><br><span class="line">    <span class="keyword">if</span>(obj1Keys!===obj2Keys)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//以obj1为基准，依次递归比较</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj1)&#123;</span><br><span class="line">        <span class="keyword">const</span> res = isEqual(obj1[key],obj2[key])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!res)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="数组-API"><a href="#数组-API" class="headerlink" title="数组 API"></a>数组 API</h1><p>push、pop、unshifi、shitf 非纯数组，<strong>返回操作数</strong>，在原数组上做修改</p>
-<p>concat 返回新数组，是纯函数</p>
-<p>map 对数组中的每一个元素都执行函数，纯函数，返回的是一个数组</p>
-<p>filter 纯函数，过滤出符合条件的元素组成的新数组</p>
-<p>slice 纯函数 类似做了一个深拷贝</p>
-<p>在 react 中是一个非常重要的概念</p>
-<p>foreach 非纯函数</p>
-<p>some every</p>
-<p>splice 非纯函数，拼接，在原数组上做修改，返回删除的元素</p>
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>变量常驻内存，闭包的内存得不到释放，会一直占用。</p>
-<p>如何减少 DOM 操作</p>
-<p>1.缓存查询</p>
-<p>2.频繁的 DOmain 操作可以先打包，放入文档片段，再统一插入到 DOM 中</p>
-<p>event.preventDefault</p>
-<p>event.stopPropagation</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201213085655052.png" alt="image-20201213085655052"></p>
-<p>var 变量提升，只提升变量，不提升值，在变量赋值之前使用不报错但是值是 undefined。</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201213090431055.png" alt="image-20201213090431055"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212220106864.png" alt="image-20201212220106864"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201213104915465.png" alt="image-20201213104915465"></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//手写trim方法，保证浏览器兼容性</span></span><br><span class="line"><span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">this</span>.replace(<span class="regexp">/^\s+/</span>, <span class="string">&quot;&quot;</span>).replace(<span class="regexp">/\s+$/</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取多个数字中的最大值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> nums =Arry.prototype.slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">    <span class="keyword">let</span> max = <span class="number">0</span></span><br><span class="line">    nums.firEach(<span class="function"><span class="params">n</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n&gt;max)&#123;</span><br><span class="line">            max=n</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> max</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.max(<span class="number">10</span>,<span class="number">20</span>,<span class="number">30.</span>..)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//如何用js 实现继承</span></span><br><span class="line"><span class="class"><span class="keyword">class</span>继承</span></span><br><span class="line"><span class="class"><span class="title">prototype</span>继承</span></span><br><span class="line"><span class="class"></span></span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201213105936094.png" alt="image-20201213105936094"></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将url参数解析为js对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">queryToObj</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> res = &#123;&#125;;</span><br><span class="line">  <span class="keyword">const</span> pList = <span class="keyword">new</span> URLSearchParams(location.search);</span><br><span class="line">  pList.forEach(<span class="function">(<span class="params">val, key</span>) =&gt;</span> &#123;</span><br><span class="line">    res[key] = val;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//手写flatern考虑多层级</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flat</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> isDeep = arry.some(<span class="function">(<span class="params">item</span>) =&gt;</span> item <span class="keyword">instanceof</span> <span class="built_in">Array</span>);</span><br><span class="line">  <span class="keyword">if</span> (!idDeep) &#123;</span><br><span class="line">    <span class="keyword">return</span> arr; <span class="comment">//已经是flatern</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> res = <span class="built_in">Array</span>.prototype.concat.apply([], arr);</span><br><span class="line">  <span class="keyword">return</span> flat(res); <span class="comment">//递归</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数组去重</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniqe</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> res = []</span><br><span class="line">    arr.forEach(<span class="function"><span class="params">item</span>=&gt;</span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(res.indexOf(item)&lt;<span class="number">0</span>)&#123;</span><br><span class="line">            res.push(item)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fucntion <span class="function"><span class="title">unique</span>(<span class="params">arr </span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>(arr)</span><br><span class="line">    <span class="keyword">return</span> [...set]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//无序结构、不能重复</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Object.assign 不是深拷贝！！！！！</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201213131254967.png" alt="image-20201213131254967"></p>
-
+        <p>常见面试题积累<br></br></p>
+        
+          <a class="article-more-a" href="/2020/12/12/%E9%9D%A2%E8%AF%95%E9%A2%98/#more">more >></a>
+        
       
 
       
@@ -383,57 +344,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><p>代码版本管理工具</p>
-<p>大型项目需要多人协作开发，必须熟悉使用 git</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">git add.</span><br><span class="line">git checkout xxx</span><br><span class="line">git commit -m &quot;xxx&quot;</span><br><span class="line">git push</span><br><span class="line">git pull</span><br><span class="line">git branch</span><br><span class="line">git checkout -b xxx 新建分支</span><br><span class="line">git merge</span><br><span class="line">gi diff XXX</span><br><span class="line">git status</span><br><span class="line">git log</span><br><span class="line">git config user.name</span><br><span class="line">git config use.email</span><br><span class="line">git clear</span><br><span class="line">git log</span><br><span class="line">git show</span><br><span class="line">git stash</span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
-
-<p>调试工具</p>
-<p>抓包（移动端开发）</p>
-<h1 id="webpack-打包-babel-转义"><a href="#webpack-打包-babel-转义" class="headerlink" title="webpack 打包 babel 转义"></a>webpack 打包 babel 转义</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm init -y</span><br><span class="line">npm install webpack webpack-cli -D</span><br><span class="line">npm install html-webpack-plugin -D 解析html</span><br><span class="line">npm install webpack-dev-server -D</span><br><span class="line">npm install @babel&#x2F;core @babel&#x2F;preset-env</span><br><span class="line">babel-loader -D</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mode:&#39;development&#39; &#x2F;&#x2F; production</span><br></pre></td></tr></table></figure>
-
-<h3 id="ES6-模块化，浏览器暂不支持"><a href="#ES6-模块化，浏览器暂不支持" class="headerlink" title="ES6 模块化，浏览器暂不支持"></a>ES6 模块化，浏览器暂不支持</h3><p>使用 export default import 就不能再使用解构赋值。</p>
-<h3 id="ES6-语法，浏览器不完全支持"><a href="#ES6-语法，浏览器不完全支持" class="headerlink" title="ES6 语法，浏览器不完全支持"></a>ES6 语法，浏览器不完全支持</h3><p>压缩代码、整合代码、让网页加载更快</p>
-<h1 id="linux-常用命令（本地没问题、上线有问题）"><a href="#linux-常用命令（本地没问题、上线有问题）" class="headerlink" title="linux 常用命令（本地没问题、上线有问题）"></a>linux 常用命令（本地没问题、上线有问题）</h1><h1 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h1><p>客户端：浏览器</p>
-<p>下载网页代码、渲染出页面、期间执行若干 JS，保证在浏览器中：稳定且高效</p>
-<p>服务端：node.js</p>
-<h2 id="网页加载过程"><a href="#网页加载过程" class="headerlink" title="网页加载过程"></a>网页加载过程</h2><h3 id="window-onload-和-DOMContent"><a href="#window-onload-和-DOMContent" class="headerlink" title="window.onload 和 DOMContent"></a>window.onload 和 DOMContent</h3><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212162651504.png" alt="image-20201212162651504"></p>
-<p>-</p>
-<h3 id="从输入-url-到渲染出页面的整个过程"><a href="#从输入-url-到渲染出页面的整个过程" class="headerlink" title="从输入 url 到渲染出页面的整个过程"></a>从输入 url 到渲染出页面的整个过程</h3><ul>
-<li>加载资源的形式</li>
-</ul>
-<p>html 代码</p>
-<p>媒体文件，图片、视频</p>
-<p>js、css</p>
-<p>​</p>
-<p>加载过程</p>
-<ul>
-<li><p>DNS 解析：域名-&gt; IP 地址</p>
-</li>
-<li><p>浏览器根据 IP 地址向服务器发送 http 请求</p>
-</li>
-<li><p>服务器处理 http 请求，并返回给浏览器</p>
-<p>渲染过程</p>
-<ul>
-<li>根据 HTML 代码生成 DOM tree</li>
-<li>根据 CSS 代码生成 CSSOM</li>
-<li>DOM Tree 和 CSSOM 整合形成 Render Tree</li>
-<li>根据 RenderTree 渲染页面</li>
-<li>遇到<code>&lt;script&gt;</code>则暂停渲染，优先加载并执行 JS 代码，完成再继续</li>
-<li>直至把 RenderTree 渲染完成</li>
-</ul>
-</li>
-<li><p>为何建议把 CSS 放在 head 中？</p>
-<p>在 DOM 树生成之前就加载完样式规则，在 DOM 树生成后就可以直接与样式整合生成 Render 树，让页面一步渲染完成。</p>
-</li>
-<li><p>为何建议把 Js 放在 body 最后？</p>
-<p>避免页面渲染时间过长。</p>
-</li>
-</ul>
-
+        <h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1></br>
+        
+          <a class="article-more-a" href="/2020/12/12/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%8F%8A%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/#more">more >></a>
+        
       
 
       
@@ -506,207 +420,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<h1 id="DOM-树"><a href="#DOM-树" class="headerlink" title="DOM(树)"></a>DOM(树)</h1><p>DOM 是什么？</p>
-<p>DOM 操作：节点操作、结构操作</p>
-<ul>
-<li><p>获取、新增、插入、获取子节点/父节点、删除</p>
-</li>
-<li><p>attribute （修改的是节点属性，会改变 html 结构）</p>
-</li>
-<li><p>property (修改的是 Jscript 对象的属性)</p>
-</li>
-<li><p>nodeName nodeType</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211163248997.png" alt="image-20201211163248997"></p>
-</li>
-</ul>
-<p>创建一个文档片段，此时还没有插入 DOM 结构中。</p>
-<p>document.createDocumentFragment</p>
-<h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h1><ul>
-<li><p>navigator</p>
-<p>navigator.userAgent 各浏览器的 ua 检测方法</p>
-<p>screen.width</p>
-</li>
-<li><p>location</p>
-</li>
-</ul>
-<p>location.href</p>
-<p>location.protocol</p>
-<p>location.host</p>
-<p>location.search 查询参数</p>
-<p>location.hash</p>
-<p>location.pathname</p>
-<ul>
-<li><p>history</p>
-<p>history.back</p>
-<p>history.forward</p>
-</li>
-</ul>
-<h1 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//编写一个通用的事件监听函数、代理</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bindEvent</span>(<span class="params">elem,type,fn</span>)</span>&#123;</span><br><span class="line">    elem.addEventListener(type,fn)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> btn1 = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;btn1&#x27;</span>)</span><br><span class="line">bindeEvent(btn1,<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="params">event</span>=&gt;</span>&#123;</span><br><span class="line">    event.preventDefault</span><br><span class="line">    <span class="built_in">console</span>.log(event.target)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><p>基于 DOM 树形结构，顺着出触发元素向上冒泡，</p>
-<p>应用场景：事件代理</p>
-<h3 id="事件代理"><a href="#事件代理" class="headerlink" title="事件代理"></a>事件代理</h3><p>代码简洁，减少浏览器内存占用。</p>
-<p>无限下拉的图片列表，如何监听每个图片的点击？</p>
-<p>event.stopPropagation</p>
-<p>event.preventDefault</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211202136405.png" alt="image-20201211202136405"></p>
-<h1 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//手写简易ajax</span></span><br><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">xhr.open(<span class="string">&quot;GET&quot;</span>,<span class="string">&quot;/api&quot;</span>,<span class="literal">false</span>)</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(xhr.readyState===<span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(xhr.status===<span class="number">200</span>)&#123;</span><br><span class="line">           <span class="built_in">console</span>.log(</span><br><span class="line">           <span class="built_in">JSON</span>.parse(xhr.responseText)</span><br><span class="line">           )</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            其他情况</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//const postData =. ...</span></span><br><span class="line">xhr.send(<span class="literal">null</span>)</span><br><span class="line"><span class="comment">//xhr.send(JSON.Stringfy(postData))</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h3><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211210711715.png" alt="image-20201211210711715"></p>
-<h3 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h3><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211210945553.png" alt="image-20201211210945553"></p>
-<h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p>服务器可以仍以动态拼接数据返回，只要符合 html 格式要求。</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211211823633.png" alt="image-20201211211823633"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211212627013.png" alt="image-20201211212627013"></p>
-<h2 id="Fetch-请求"><a href="#Fetch-请求" class="headerlink" title="Fetch 请求"></a>Fetch 请求</h2><h3 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h3><h2 id="CORS-服务器设置-http-header"><a href="#CORS-服务器设置-http-header" class="headerlink" title="CORS 服务器设置 http header"></a>CORS 服务器设置 http header</h2><h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><h3 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h3><h4 id="跨域解决方案"><a href="#跨域解决方案" class="headerlink" title="跨域解决方案"></a>跨域解决方案</h4><h1 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h1><ul>
-<li>cookie</li>
-</ul>
-<p>cookie 本身用于浏览器和 server 通讯，由于以前没有本地存储的能力，cookie 被“借用”到本地存储来（字符串）</p>
-<p>同一个 key 会覆盖，不同 key 会追加，不同于其他的 API。</p>
-<p>最大存储 4KB</p>
-<p>http 请求时需要发送到服务端，增加请求数据量</p>
-<p>只能用 document.cookie 来修改，API 太过简陋</p>
-<ul>
-<li>localStorage 数据会永久存储，除非手动删除，最大 5M</li>
-</ul>
-<p>API 简单易用，localStorage.setItem （会强制类型转换为字符串）</p>
-<p>localStorage.getItem</p>
-<p>不会随着 http 请求被发送出去</p>
-<ul>
-<li>sessionStorage 只存在当前会话，浏览器关闭则自动清空</li>
-</ul>
-<p>容量、API、是否跟随 http 请求发送</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201211154913093.png" alt="image-20201211154913093"></p>
-<h1 id="http"><a href="#http" class="headerlink" title="http"></a>http</h1><h2 id="http-状态码"><a href="#http-状态码" class="headerlink" title="http 状态码"></a>http 状态码</h2><ul>
-<li><p>1XX：服务器收到请求</p>
-</li>
-<li><p>2XX：请求成功</p>
-<ul>
-<li>200 成功</li>
-</ul>
-</li>
-<li><p>3XX：重定向</p>
-<ul>
-<li>301 永久重定向，配合 location，浏览器自动处理</li>
-<li>302 临时重定向，配合 location，浏览器自动处理</li>
-<li><strong>304 资源未被修改</strong>，浏览器已经请求过，资源未过期，继续使用已经缓存的资源</li>
-</ul>
-</li>
-<li><p>4XX：客户端错误</p>
-<ul>
-<li>404 资源未找到</li>
-<li>403 没有权限</li>
-</ul>
-</li>
-<li><p>5XX：服务端错误</p>
-<ul>
-<li>500 服务器错误</li>
-<li>504 网关超时</li>
-</ul>
-</li>
-<li><p>关于协议和规范</p>
-</li>
-</ul>
-<h3 id="http-methods"><a href="#http-methods" class="headerlink" title="http methods"></a>http methods</h3><ul>
-<li><p>传统 methods</p>
-<p>get 获取服务器数据</p>
-<p>post 向服务器提交数据</p>
-</li>
-<li><p>现在的 methods</p>
-</li>
-</ul>
-<p>​ get 获取数据</p>
-<p>​ post 新建数据</p>
-<p>​ patch/put 更新数据</p>
-<p>​ delete 删除数据</p>
-<ul>
-<li>Restful API</li>
-</ul>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212090114704.png" alt="image-20201212090114704"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212090257659.png" alt="image-20201212090257659"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212090409508.png" alt="image-20201212090409508"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212090538135.png" alt="image-20201212090538135"></p>
-<p>##</p>
-<h2 id="http-headers"><a href="#http-headers" class="headerlink" title="http headers"></a>http headers</h2><h6 id="Request-headers"><a href="#Request-headers" class="headerlink" title="Request headers"></a>Request headers</h6><ul>
-<li><ul>
-<li>Accept 浏览器可接受的数据格式</li>
-<li>Accept-Encoding 浏览器可接受的压缩算法，如 gzip</li>
-<li>Accept-language</li>
-</ul>
-</li>
-<li><p>Connection：keep-alive 一次 TCP 连接重复使用</p>
-</li>
-<li><p>cookie：只要是同一个域，每次请求都会带上 cookie</p>
-</li>
-<li><p>Host：请求的域名</p>
-</li>
-<li><p>user-Agent（UA）：浏览器信息，浏览器标识</p>
-</li>
-<li><p>Content-type：发送数据的格式，如 application/json</p>
-</li>
-</ul>
-<h6 id="response-headers"><a href="#response-headers" class="headerlink" title="response headers"></a>response headers</h6><ul>
-<li><p>content-type：返回数据格式</p>
-</li>
-<li><p>content-length：返回数据的大小</p>
-</li>
-<li><p>content-encoding：返回数据的压缩算法</p>
-</li>
-<li><p>Set-Cookie：服务端向客户端设置 cookie</p>
-</li>
-</ul>
-<h6 id="自定义-header"><a href="#自定义-header" class="headerlink" title="自定义 header"></a>自定义 header</h6><p>可以用于做简单的权限验证</p>
-<h2 id="http-的缓存机制"><a href="#http-的缓存机制" class="headerlink" title="http 的缓存机制"></a>http 的缓存机制</h2><p>网络请求加载相比于 CPU 运算、网页的渲染，速度较慢，且网络请求不稳定，使用缓存可以优化空间更大一些。使用本地缓存，可以减少网络请求的次数</p>
-<p>静态资源可以被缓存（js、css、img）</p>
-<ul>
-<li>http 缓存策略（强制缓存+协商缓存）</li>
-</ul>
-<p>强制缓存：</p>
-<p>初次请求：服务端返回资源和 Cache-control，浏览器根据 cache-control 自动将资源缓存到本地</p>
-<p>cache-cotrol 控制强制缓存的逻辑</p>
-<p>再次请求：本地缓存直接返回资源</p>
-<p>缓存过期：再次请求服务端，再次设置缓存</p>
-<p>协商缓存：（对比缓存）</p>
-<ul>
-<li><p>服务端缓存策略：服务端来判断资源是否缓存</p>
-<p>服务端判断客户端资源是否和服务端资源一样，一样则返回 304，否则返回 200 和最新资源</p>
-<p>response headers 中</p>
-<p>last-modified</p>
-<p>初次请求：返回资源，和资源标识 last-modified</p>
-<p>再次请求：带着资源标识 if-modified-since，服务端返回 304，或返回新的资源和资源标识（新的 last-modified）</p>
-</li>
-</ul>
-<p>缓存相关 headers</p>
-<ul>
-<li><p>Cache-control</p>
-<ul>
-<li>max-age：缓存过期时间</li>
-<li>no-cache 不用本地强制缓存</li>
-<li>no-store 不用本地缓存和服务端的缓存措施</li>
-<li>private 只能允许最终用户做缓存</li>
-<li>public 允许中间的路由、代理做缓存</li>
-<li>Expires 控制缓存过期，已被 Cache-Control 代替</li>
-</ul>
-</li>
-<li><p>Last-Modified 资源的最后修改时间</p>
-</li>
-<li><p>Etag 资源的唯一标识</p>
-</li>
-</ul>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212103333071.png" alt="image-20201212103333071"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212103628374.png" alt="image-20201212103628374"></p>
-<p>刷新操作方式，对缓存的影响</p>
-<ul>
-<li><p>地址栏输入 url，跳转链接、前进后退</p>
-</li>
-<li><p>手动刷新 f5、点击刷新按钮、右键菜单刷新</p>
-</li>
-<li><p>强制刷新 ctrl+f5</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201212105943550.png" alt="image-20201212105943550"></p>
-</li>
-</ul>
-
+        <h1 id="DOM-树"><a href="#DOM-树" class="headerlink" title="DOM(树)"></a>DOM(树)</h1></br>
+        
+          <a class="article-more-a" href="/2020/12/11/JS-WebAPI/#more">more >></a>
+        
       
 
       
@@ -775,107 +492,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<h1 id="一、变量类型和计算"><a href="#一、变量类型和计算" class="headerlink" title="一、变量类型和计算"></a>一、变量类型和计算</h1><h2 id="值类型和引用类型"><a href="#值类型和引用类型" class="headerlink" title="值类型和引用类型"></a>值类型和引用类型</h2><p>本质是堆栈模型不同，考虑到存储性能的问题，把值类型存储在栈中，而引用类型是把地址存在栈中，而地址指向的内容存放在堆中。</p>
-<p>常见值类型：undefined、string、number、boolean、symbol</p>
-<p>常见引用类型：null、object、[ ] 、 fn( ){ }(特殊，没有复制、引用这些说法)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">typeof可以判断几种类型？</span><br><span class="line">常见值类型、function、object（不可以再细分了）</span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210153807108.png" alt="image-20201210153807108"></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//手写深拷贝</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> obj != obj || obj == <span class="literal">null</span>)&#123;</span><br><span class="line">      <span class="keyword">return</span> obj</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> result</span><br><span class="line">  <span class="keyword">if</span>(obj) <span class="keyword">instanceof</span> <span class="built_in">Array</span> &#123;</span><br><span class="line">      result=[]</span><br><span class="line">  &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">      result=&#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj)&#123;</span><br><span class="line">       <span class="comment">//保证key不是原型的属性</span></span><br><span class="line">       <span class="keyword">if</span>(obj.hasOwnProperty(key))&#123;</span><br><span class="line">           <span class="comment">//递归调用！</span></span><br><span class="line">           result[key] = deepClone(obj[key])</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="场景题"><a href="#场景题" class="headerlink" title="场景题"></a>场景题</h3><h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><ul>
-<li>字符串拼接： + “string” 最终得到的都是字符串</li>
-<li>==运算符</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">何时使用<span class="string">&quot;===&quot;</span>,<span class="string">&quot;==&quot;</span></span><br><span class="line"></span><br><span class="line">除了 == <span class="literal">null</span>之外，其他都一律用 ===</span><br><span class="line"></span><br><span class="line">相当于===<span class="literal">null</span>||===<span class="literal">undefined</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210161324072.png" alt="image-20201210161324072"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210161354695.png" alt="image-20201210161354695"></p>
-<h1 id="二、原型和原型链"><a href="#二、原型和原型链" class="headerlink" title="二、原型和原型链"></a>二、原型和原型链</h1><h2 id="class-和继承"><a href="#class-和继承" class="headerlink" title="class 和继承"></a>class 和继承</h2><p>constructor</p>
-<p>属性</p>
-<p>方法</p>
-<hr>
-<p>extends</p>
-<p>super</p>
-<p>扩展或重写方法</p>
-<h2 id="类型判断-instanceof"><a href="#类型判断-instanceof" class="headerlink" title="类型判断 instanceof"></a>类型判断 instanceof</h2><ul>
-<li>判断该引用类型是否是由后者这个 class 构建出来的，后者是否是构建该变量的 class 的一个父类</li>
-<li>object 是所有 class 的父类</li>
-</ul>
-<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>class 的本质 typeof 还是 function，可见是语法糖</p>
-<p>** proto **隐式原型</p>
-<p>prototype 显式原型</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210202051110.png" alt="image-20201210202051110"></p>
-<p>执行规则：</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210202137084.png" alt="image-20201210202137084"></p>
-<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>Parents.prototype === Children.prototype.** proto **</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210203037143.png" alt="image-20201210203037143"></p>
-<p>A instanceof B</p>
-<p>若 A 顺着隐式原型找不到 B 的显式原型，则为 false</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210203513822.png" alt="image-20201210203513822"></p>
-<h2 id="手写一个简易的-jQuery，考虑插件和扩展性"><a href="#手写一个简易的-jQuery，考虑插件和扩展性" class="headerlink" title="手写一个简易的 jQuery，考虑插件和扩展性"></a>手写一个简易的 jQuery，考虑插件和扩展性</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="如何判断一个变量是不是数组？"><a href="#如何判断一个变量是不是数组？" class="headerlink" title="如何判断一个变量是不是数组？"></a>如何判断一个变量是不是数组？</h2><p>instanceof Array</p>
-<h3 id="class-的原型本质，怎么理解？"><a href="#class-的原型本质，怎么理解？" class="headerlink" title="class 的原型本质，怎么理解？"></a>class 的原型本质，怎么理解？</h3><p>原型和原型链的图示</p>
-<p>属性和方法</p>
-<h1 id="三、作用域和闭包"><a href="#三、作用域和闭包" class="headerlink" title="三、作用域和闭包"></a>三、作用域和闭包</h1><h2 id="作用域和自由变量"><a href="#作用域和自由变量" class="headerlink" title="作用域和自由变量"></a>作用域和自由变量</h2><p>全局作用域、函数作用域、块级作用域</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210163304971.png" alt="image-20201210163304971"></p>
-<h3 id="this-的不同应用场景"><a href="#this-的不同应用场景" class="headerlink" title="this 的不同应用场景"></a>this 的不同应用场景</h3><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210165352560.png" alt="image-20201210165352560"></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210165402374.png" alt="image-20201210165402374"></p>
-<p><strong>this 取值是在执行时确认的，而不是在执行的时候确定的！！！！！！</strong></p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210194636590.png" alt="image-20201210194636590"></p>
-<p>箭头函数的 this 取值是上级作用域的 this</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210165721618.png" alt="image-20201210165721618"></p>
-<p>setTimeout 的 this 是 window</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210194833657.png" alt="image-20201210194833657"></p>
-<h3 id="手写-bind-函数"><a href="#手写-bind-函数" class="headerlink" title="手写 bind 函数"></a>手写 bind 函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind1=<span class="function"><span class="title">fuction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//将参数拆解为数组</span></span><br><span class="line">    <span class="keyword">const</span> args = Arry.prototype.slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">    <span class="comment">//获取this</span></span><br><span class="line">    <span class="keyword">const</span> t = args.shift( )</span><br><span class="line">    <span class="comment">//fn1.bind(...)中的fn1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> self = <span class="built_in">this</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> self.apply(t,args)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="闭包在实际应用中的场景"><a href="#闭包在实际应用中的场景" class="headerlink" title="闭包在实际应用中的场景"></a>闭包在实际应用中的场景</h2><h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包的产生与变量的作用域有关，由于 JS 中变量的查找是从内往外查找的，内部的变量可以访问外部变量，但是外部的变量无法访问内部的变量。</p>
-<p>因此，如果要从外部读取函数内部的局部变量，就要使用闭包，即能读取其他函数内部的变量的函数。</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210164309691.png" alt="image-20201210164309691"></p>
-<p>所有自由变量查找都是从定义的作用域开始向上查找</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">closure; <span class="comment">//函数作为返回值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">create</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">100</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fn = create();</span><br><span class="line"><span class="keyword">const</span> a = <span class="number">200</span>;</span><br><span class="line">fn(); <span class="comment">//100</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数作为参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> a = <span class="number">200</span>;</span><br><span class="line">  fn();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line">print(fn); <span class="comment">//100</span></span><br><span class="line"><span class="comment">//从函数定义的作用域开始向上级作用域查找，而不是在执行的地方开始查找</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="读取函数内部的变量，让这些变量的值始终保存在内存中"><a href="#读取函数内部的变量，让这些变量的值始终保存在内存中" class="headerlink" title="读取函数内部的变量，让这些变量的值始终保存在内存中"></a>读取函数内部的变量，让这些变量的值始终保存在内存中</h4><h4 id="闭包隐藏数据，只提供-API"><a href="#闭包隐藏数据，只提供-API" class="headerlink" title="闭包隐藏数据，只提供 API"></a>闭包隐藏数据，只提供 API</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createCache</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> data = &#123;&#125;<span class="comment">//闭包中的数据，被隐藏，不能被外界访问</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        set:<span class="function"><span class="keyword">function</span>(<span class="params">key,value</span>)</span>&#123;</span><br><span class="line">            data[key]=value</span><br><span class="line">        &#125;</span><br><span class="line">        get:<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> data[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="用于-for-循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域"><a href="#用于-for-循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域" class="headerlink" title="用于 for 循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域"></a>用于 for 循环，为每一次循环（尤其是不会立即执行的）生成单独的作用域</h4><h1 id="四、事件循环"><a href="#四、事件循环" class="headerlink" title="四、事件循环"></a>四、事件循环</h1><h2 id="异步和单线程"><a href="#异步和单线程" class="headerlink" title="异步和单线程"></a>异步和单线程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">同步和异步的区别？</span><br><span class="line"></span><br><span class="line">基于 JS 是单线程语言，异步不会阻塞代码执行，同步会阻塞代码执行。</span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201210210842874.png" alt="image-20201210210842874"></p>
-<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ol>
-<li>网络请求，如 ajax 图片加载</li>
-<li>定时任务，如 setTimeout</li>
-</ol>
-<h3 id="callback-hell-和-promise"><a href="#callback-hell-和-promise" class="headerlink" title="callback hell 和 promise"></a>callback hell 和 promise</h3><ul>
-<li><p>手写 Promise 加载一张图片</p>
-</li>
-<li><p>前端使用异步的场景有哪些？</p>
-</li>
-<li><p>场景题</p>
-</li>
-</ul>
-<h2 id="event-loop"><a href="#event-loop" class="headerlink" title="event loop"></a>event loop</h2><p>Jscript 是单线程的，异步需要回调来实现。事件循环就是异步回调机制的实现原理。</p>
-<ol>
-<li>同步任务先存放在主线程执行栈中开始执行</li>
-<li>异步任务存放在任务队列（task queue）中等待，等待时机（网络请求、定时器）</li>
-<li>一旦同步任务执行完，就会启动事件循环，将存放在事件队列里的异步任务取入执行栈中执行。</li>
-<li>继续轮询查找（loop），这个过程不断重复，称为事件循环。</li>
-</ol>
-<p>DOM 事件也是基于回调来触发事件的，同样基于 eventloop。</p>
-<h3 id="微任务-宏任务"><a href="#微任务-宏任务" class="headerlink" title="微任务/宏任务"></a>微任务/宏任务</h3><p>不同的异步任务会被分入到不同的任务队列中，其中可以分为宏任务、微任务。<strong>微任务执行时机比宏任务早。</strong></p>
-<h4 id="macroTask-宏任务：ettimeout、setinterval、ajax、DOM-事件"><a href="#macroTask-宏任务：ettimeout、setinterval、ajax、DOM-事件" class="headerlink" title="macroTask 宏任务：ettimeout、setinterval、ajax、DOM 事件"></a>macroTask 宏任务：ettimeout、setinterval、ajax、DOM 事件</h4><p>在 DOM 渲染后触发（放在 WebAPIs 里面）（浏览器规定的）</p>
-<h4 id="microTask-微任务：promise、async-await、"><a href="#microTask-微任务：promise、async-await、" class="headerlink" title="microTask 微任务：promise、async/await、"></a>microTask 微任务：promise、async/await、</h4><p>在 DOM 渲染前触发（放在 microtask queue 里)（ES6 语法规定的）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于宏任务是在DOM渲染后才触发的，所以如果有大量的DOM操作，为了更快的响应界面，可以把DOM操作放在微任务（DOM渲染前）中执行。</span><br></pre></td></tr></table></figure>
-
-<h3 id="event-loop-和-DOM-渲染"><a href="#event-loop-和-DOM-渲染" class="headerlink" title="event loop 和 DOM 渲染"></a>event loop 和 DOM 渲染</h3><p>JS 是单线程的，且和 DOM 渲染共用一个线程。JS 执行的时候，需要留一些时机给 DOM 渲染。</p>
-<ul>
-<li>当 callstack 空闲（每次轮询结束），即同步任务执行完，先尝试 DOM 渲染，才开始触发 event loop</li>
-</ul>
-<h1 id="五、AJAX"><a href="#五、AJAX" class="headerlink" title="五、AJAX"></a>五、AJAX</h1><p><code>Asynchronous Javascript And XML</code> （异步的 <code>JavaScript</code>和<code>XML</code>）是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页实现部分更新。</p>
-
+        <h1 id="一、变量类型和计算"><a href="#一、变量类型和计算" class="headerlink" title="一、变量类型和计算"></a>一、变量类型和计算</h1></br>
+        
+          <a class="article-more-a" href="/2020/12/10/JavaScript%E5%A4%8D%E4%B9%A0/#more">more >></a>
+        
       
 
       
@@ -948,7 +568,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="html"><a href="#html" class="headerlink" title="html"></a>html</h1><h2 id="如何理解语义化？"><a href="#如何理解语义化？" class="headerlink" title="如何理解语义化？"></a>如何理解语义化？</h2>
+        <h1 id="html"><a href="#html" class="headerlink" title="html"></a>html</h1><h2 id="如何理解语义化？"><a href="#如何理解语义化？" class="headerlink" title="如何理解语义化？"></a>如何理解语义化？</h2></br>
         
           <a class="article-more-a" href="/2020/12/10/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80-CSS-HTML/#more">more >></a>
         
@@ -1028,7 +648,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#</p>
+        <h1 id="Vue3"><a href="#Vue3" class="headerlink" title="Vue3"></a>Vue3</h1>
         
           <a class="article-more-a" href="/2020/12/09/vue3/#more">more >></a>
         
@@ -1203,200 +823,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<ul>
-<li>Vue-cli</li>
-<li>v-html 会有 xss 风险，会覆盖子组件。</li>
-<li>computed 有缓存，data 不变不会重新计算。如果使用 v-model，必须有 get 和 set，否则会报错。</li>
-</ul>
-<p>用于提高 i 性能</p>
-<ul>
-<li><p>watch 是浅监听，若要深度监听，使用 handle、并设置 deep 为 true，且拿不到 oldvalue（因为是引用类型）。</p>
-</li>
-<li><p>class\style</p>
-</li>
-<li><p>data 为何必须是一个函数</p>
-</li>
-<li><p>v-if 和 v-show</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">区别：v-show通过CSS的display属性控制显示和隐藏；</span><br><span class="line">v-if组件是在DOM结构上进行渲染和销毁。</span><br><span class="line"></span><br><span class="line">使用场景：刷新不频繁用v-if，如果频繁切换用v-show，不用反复销毁。</span><br><span class="line">keep-alive是在vue实例层面去孔子</span><br></pre></td></tr></table></figure>
-
-<p>扩展：display：none，hidden 的区别</p>
-<ul>
-<li><p>v-for</p>
-</li>
-<li><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201208161703575.png" alt="image-20201208161703575"></p>
-<ul>
-<li><p>key 的重要性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">必须用key，且不能用index和random</span><br><span class="line">diff算法中通过tag和key来判断是否是sameNode</span><br><span class="line">减少渲染次数，提升渲染的性能。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>v-for 和 v-if 不能一起用</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>v-for 优先级高于 v-if</p>
-</li>
-<li><p>事件</p>
-<p>event 参数、若有自定义参数，要写成 $event，并且放在最后。</p>
-<p>event 是原生的，事件被挂载在当前元素。</p>
-<p>事件按修饰符、按键修饰符</p>
-<p><strong>观察</strong>事件被绑定在那里？</p>
-</li>
-<li><p>v-model 表单</p>
-<p>表单修饰符 trim lazy（防抖，输入完成了才会变化）</p>
-<p>number</p>
-</li>
-</ul>
-<h4 id="父子组件通信"><a href="#父子组件通信" class="headerlink" title="父子组件通信"></a>父子组件通信</h4><p>$props</p>
-<p>将组件的所有 props 传给子组件</p>
-<ul>
-<li><p>组件间通讯-</p>
-<p>props</p>
-<p>$emit</p>
-</li>
-<li><p>自定义事件</p>
-<p>兄弟组件间的通信</p>
-<p>event.$emit （和 this 区分开，一个是调用父组件的能力，一个是调用实例的能力）</p>
-<p>event.$on</p>
-</li>
-</ul>
-<p>vue 实例本身有自定义事件的能力，不用绑定 bus</p>
-<p>$off 解绑事件（beforedestory 生命周期）及时销毁，否则会造成内存泄露。</p>
-<p>vuex 通信</p>
-<h4 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>ajax 放在 mounted 生命周期</p>
-<p>因为 ajax 是异步请求，js 是单线程的</p>
-<h5 id="单组件"><a href="#单组件" class="headerlink" title="单组件"></a>单组件</h5><p>挂载 更新 销毁</p>
-<p>created 和 mounted 的区别？</p>
-<p>把实例初始化，并没有开始渲染，实例挂载完成了</p>
-<p>页面上已经存在内容了</p>
-<p>beforestory</p>
-<p>解除绑定自定义事件 $off，避免内存泄漏</p>
-<p>清除定时器</p>
-<p>消除子组件</p>
-<p>事件监听器</p>
-<p>解绑自定义事件 window.scroll</p>
-<ul>
-<li>多个组件</li>
-</ul>
-<p>创建顺序：从外到内</p>
-<p>渲染顺序：从内到外</p>
-<p>更新：从外到内</p>
-<p>销毁：</p>
-<h1 id="Vue-高级特性"><a href="#Vue-高级特性" class="headerlink" title="Vue 高级特性"></a>Vue 高级特性</h1><h2 id="V-model-双向数据绑定的实现原理"><a href="#V-model-双向数据绑定的实现原理" class="headerlink" title="V-model 双向数据绑定的实现原理"></a>V-model 双向数据绑定的实现原理</h2><p>自定义 v-model</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201209184321340.png" alt="image-20201209184321340"></p>
-<h2 id="nextTick、ref-（组件更新之后如何异步获取最新的-DOM"><a href="#nextTick、ref-（组件更新之后如何异步获取最新的-DOM" class="headerlink" title="$nextTick、ref （组件更新之后如何异步获取最新的 DOM"></a>$nextTick、ref （组件更新之后如何异步获取最新的 DOM</h2><p>Vue 是异步渲染</p>
-<p>data 改变后，DOM 不会立刻渲染</p>
-<p>$nexttick 会在 DOm 渲染之后被触发，以获取最新的 DOM 节点。</p>
-<p>渲染之后在回调，页面渲染时会将 data 的修改做整合，多次修改 data 只会渲染一次</p>
-<h2 id="slot（注意-Vue-的场景题）"><a href="#slot（注意-Vue-的场景题）" class="headerlink" title="slot（注意 Vue 的场景题）"></a>slot（注意 Vue 的场景题）</h2><p>父组件向子组件中插入一些东西</p>
-<ul>
-<li>作用域插槽</li>
-</ul>
-<p>将子组件中的数据传入到插槽中</p>
-<ul>
-<li>具名插槽</li>
-</ul>
-<h2 id="动态、异步组件"><a href="#动态、异步组件" class="headerlink" title="动态、异步组件"></a>动态、异步组件</h2><p>：is=“。。。”</p>
-<ul>
-<li>import（）函数</li>
-<li>按需加载，异步加载大组件</li>
-</ul>
-<h2 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a>keep-alive</h2><p>优化性能，缓存组件</p>
-<p>场景： 频繁切换，不需要重复渲染，多个静态 Tab 页</p>
-<p>（v-show 是在 css 层级上来控制的）</p>
-<h2 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h2><p>多个组件有相同的逻辑，抽离出来</p>
-<p>变量来源不明确，不便于阅读</p>
-<p>多 mixin 会造成冲突</p>
-<p>vue3 提出的 compositionAPI 旨在解决这个问题</p>
-<h1 id="Vue-插件"><a href="#Vue-插件" class="headerlink" title="Vue 插件"></a>Vue 插件</h1><h1 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h1><p>state</p>
-<p>actions(只有在这里才能做异步操作）)</p>
-<p>mutation 不可以处理异步</p>
-<p>dispatch</p>
-<p>commit</p>
-<p>mapstate</p>
-<p>mapGetters</p>
-<p>mapActions</p>
-<p>mapMutations</p>
-<p><strong>state 的数据结构设计！！</strong></p>
-<p><strong>基本用法+使用场景+结合项目经验</strong></p>
-<h1 id="Vue-原理"><a href="#Vue-原理" class="headerlink" title="Vue 原理"></a>Vue 原理</h1><h2 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h2><p>传统组件，只是静态渲染，更新需要依赖操作 DOM</p>
-<p>数据驱动视图，更加关注于业务逻辑（数据）</p>
-<h1 id="MVVM-模型"><a href="#MVVM-模型" class="headerlink" title="MVVM 模型"></a>MVVM 模型</h1><h2 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h2><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201209190051740.png" alt="image-20201209190051740"></p>
-<p>组件 data 数据一旦变化，立刻触发视图更新</p>
-<p>监听 data 变化的核心 API-Object.defineProperty、深度监听（在设置新的值和监听的地方都要<strong>深度监听</strong>）</p>
-<p>缺点（vue3.0 采用 Proxy）</p>
-<p>1.深度监听需要需要递归到底，一次性监听量大、计算量大</p>
-<p>2.无法监听新增/删除属性，需要用 Vue.set \Vue.delete</p>
-<p>3。不具备监听数组的能力</p>
-<p>4.无法原生监听数组，需要特殊处理，否则会污染数组全局的原型。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">重新定义原型，重写push、pop等方法</span><br></pre></td></tr></table></figure>
-
-<h2 id="virtual-dom-和-diff"><a href="#virtual-dom-和-diff" class="headerlink" title="virtual dom 和 diff"></a>virtual dom 和 diff</h2><p>DOM 操作非常耗费性能，而 JS 执行速度很快。</p>
-<p>数据驱动视图，如何有效控制 DOM 操作？</p>
-<p>用 JS 模拟 DOM 结构。计算出最小变更，操作 DOM</p>
-<p>Vnode 的结构：vnode h patch</p>
-<h3 id="diff-算法"><a href="#diff-算法" class="headerlink" title="diff 算法"></a>diff 算法</h3><p>树 diff 的时间复杂度 o（n^3) 算法不可用</p>
-<p>优化时间复杂度：只比较同一层级、tag 不同直接删掉重建，不在深度比较</p>
-<p>tag 和 key 两者都相同，则认为是相同节点，不再深度比较。</p>
-<p>diff 算法源码：</p>
-<p>patch（element，vnede）</p>
-<p>patch（vnode，newvnede）</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201209190219817.png" alt="image-20201209190219817"></p>
-<h2 id="模板编译（全面性）"><a href="#模板编译（全面性）" class="headerlink" title="模板编译（全面性）"></a>模板编译（全面性）</h2><p>vue 是最常用的部分，与使用相关联的原理</p>
-<p>组件渲染和更新过程</p>
-<p>heml 是标签语言，只有 JS 才能实现判断、循环（图灵完备的）</p>
-<p>因此，模板一定会转化称为某种 js 代码，即模板编译。</p>
-<ul>
-<li>with 语法</li>
-</ul>
-<p>with 能改变{}内自由变量的查找方式，将{}内的自由变量当作 obj 的属性来查找，如果找不到匹配的属性会报错。（不建议用，打破了作用域规则，易读性变差）</p>
-<ul>
-<li>vue template compiler 将模板编译为<strong>render 函数</strong></li>
-</ul>
-<p>执行 render 函数生成 vnode</p>
-<p>基于 vnode 再执行 patch 和 diff</p>
-<p>在开发环境编译模板（打包过程中就已经完成了）vue-loade</p>
-<ul>
-<li>vue 组件可以用 render 代替 template</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vnode描述一个DOM结构</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="渲染过程"><a href="#渲染过程" class="headerlink" title="渲染过程"></a>渲染过程</h2><h2 id="初次渲染"><a href="#初次渲染" class="headerlink" title="初次渲染"></a>初次渲染</h2><ul>
-<li>解析模板为 render 函数（或在开发环境已经完成 vue-loader）</li>
-<li>执行 render，触发响应式，监听 data 属性 getter setter</li>
-<li>执行 render 函数，生成 vnode，patch（elem，vnode）</li>
-<li>重新执行 render 函数，newnode</li>
-<li>patch（vnode，newvnode）</li>
-</ul>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201209163610069.png" alt="image-20201209163610069"></p>
-<p>更新过程</p>
-<h1 id="异步渲染"><a href="#异步渲染" class="headerlink" title="异步渲染"></a>异步渲染</h1><p>￥ nextTick（）汇总 data 的修改，一次性更新视图，减少 DOM 操作次数、提高性能</p>
-<p>js 修改 DOM 很容易，但是每修改一次，浏览器就重新渲染一次，非常消耗性能。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201209164145510.png" alt="image-20201209164145510"><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201209164216084.png" alt="image-20201209164216084"></h2><p><font color="red"> <strong>流程的全面化、完整</strong></font></p>
-<h2 id="前端路由-vue-router"><a href="#前端路由-vue-router" class="headerlink" title="前端路由 vue-router"></a>前端路由 vue-router</h2><p>稍复杂的 SPA 都需要路由</p>
-<h1 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h1><h3 id="路由模式"><a href="#路由模式" class="headerlink" title="路由模式"></a>路由模式</h3><h5 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h5><p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201209165311997.png" alt="image-20201209165311997"></p>
-<p>window.onhashchange</p>
-<h5 id="H5history（需要-server-支持"><a href="#H5history（需要-server-支持" class="headerlink" title="H5history（需要 server 支持)"></a>H5history（需要 server 支持)</h5><p>history.pushState(,)</p>
-<p>window.onpopstate</p>
-<p><img src="C:\Users\11609\AppData\Roaming\Typora\typora-user-images\image-20201209180320237.png" alt="image-20201209180320237"></p>
-<h3 id="路由配置（动态路由、懒加载）"><a href="#路由配置（动态路由、懒加载）" class="headerlink" title="路由配置（动态路由、懒加载）"></a>路由配置（动态路由、懒加载）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">前端路由的实现原理？</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="Vue-常见性能优化"><a href="#Vue-常见性能优化" class="headerlink" title="Vue 常见性能优化"></a>Vue 常见性能优化</h1><p>v-show 和 v-if</p>
-<p>合理使用 compoted</p>
-<p>v-for 加 key，不和 v-if 同时使用</p>
-<p>自定义、DOM 事件要及时销毁，避免内存泄漏</p>
-<p>合理使用异步组件、keep-alive</p>
-<p>data 层级不要太深，响应式深度监听需要一次性遍历完</p>
-<p>v-loader 在开发环境做模板编译（预编译）</p>
-<p>webpack 层面优化</p>
-<p>通用性能优化：图片懒加载</p>
-<p>使用 SSR</p>
-
+        <ul>
+<li>Vue-cli</br>
+        
+          <a class="article-more-a" href="/2020/12/08/vue-learning/#more">more >></a>
+        
       
 
       
@@ -1680,7 +1111,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">终生学习（学习前端开发的第5个月...)</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">You don&#39;t get what you deserve, &lt;/br&gt; you get what you ask for</div>
   	  	
     	</section>
     
